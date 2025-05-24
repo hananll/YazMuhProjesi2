@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
+  m_Name: "Tan\u0131kAli1.1"
+  m_EditorClassIdentifier: 
+  metin: "Mehmet Ta\u015F, 48 ya\u015F\u0131nday\u0131m. Emekliyim. Elif Kara\u2019n\u0131n
+    alt kat kom\u015Fusuyum. Ayn\u0131 binada 7 y\u0131ld\u0131r oturuyorum.\n\n"
+  konusmaciAdi: "Tan\u0131k"
+  konusmaciPortresi: {fileID: 0}

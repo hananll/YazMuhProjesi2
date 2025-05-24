@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
   m_Name: SAvukat1.2
   m_EditorClassIdentifier: 
-  metin: "... m\xFCvekkilimin beraatine yada davan\u0131n mahkeme taraf\u0131nda
-    d\xFC\u015F\xFCr\xFClmesini talep ediyorum."
-  konusmaciAdi: " Avukat Ali Kemal G\xFCren"
+  metin: "...m\xFCvekkilimin kas\u0131tl\u0131 \u015Fiddet eylemi i\xE7inde olmad\u0131\u011F\u0131
+    kanaatindeyiz. Lehe h\xFCk\xFCmlerin uygulanmas\u0131n\u0131 talep ediyoruz..."
+  konusmaciAdi: ' Avukat'
   konusmaciPortresi: {fileID: 0}

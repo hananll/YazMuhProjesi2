@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
   m_Name: Savci1.1
   m_EditorClassIdentifier: 
-  metin: "Sayin hakim, yeni delillerin do\u011Frulu\u011Funun incelenmesi ve tan\u0131k
-    ifadelerinin do\u011Frulu\u011Funun ara\u015Ft\u0131rl\u0131mas\u0131 i\xE7in
-    duru\u015Fman\u0131n ertelenmesini talep ediyorum."
+  metin: "Dosya i\xE7eri\u011Fi, tan\u0131k beyanlar\u0131 ve ma\u011Fdur ifadesi
+    birlikte de\u011Ferlendirildi\u011Finde, san\u0131\u011F\u0131n e\u015Fine kar\u015F\u0131
+    kasten yaralama su\xE7unu i\u015Fledi\u011Fi anla\u015F\u0131lm\u0131\u015Ft\u0131r.
+    T\xFCrk Ceza Kanunu 86/2 ve 86/3-a uyar\u0131nca san\u0131\u011F\u0131n 3 y\u0131l
+    6 ay hapis cezas\u0131yla cezaland\u0131r\u0131lmas\u0131n\u0131 kamu ad\u0131na
+    talep ederiz."
   konusmaciAdi: "Cumhuriyet Savc\u0131s\u0131"
   konusmaciPortresi: {fileID: 0}

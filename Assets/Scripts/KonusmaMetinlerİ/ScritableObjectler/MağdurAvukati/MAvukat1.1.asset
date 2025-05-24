@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
   m_Name: MAvukat1.1
   m_EditorClassIdentifier: 
-  metin: "Say\u0131n,hakim savc\u0131l\u0131\u011F\u0131n delilleri ortadad\u0131r
-    san\u0131k Yunus Emre \u0130pek e\u015Fine \u015Fiddet uygulam\u0131\u015Ft\u0131r,
-    cezaland\u0131r\u0131lmas\u0131n\u0131 talep ediyoruz."
-  konusmaciAdi: "Avukat Ece Y\u0131lmazer"
+  metin: "Say\u0131n Mahkeme, ortada yaln\u0131zca bir iddia de\u011Fil, sistematik
+    bir \u015Fiddet tablosu vard\u0131r. Ma\u011Fdurun susarak ge\xE7irdi\u011Fi
+    y\u0131llar bir travmad\u0131r..."
+  konusmaciAdi: Avukat
   konusmaciPortresi: {fileID: 0}

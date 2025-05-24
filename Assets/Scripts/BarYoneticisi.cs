@@ -18,18 +18,15 @@ public class BarYoneticisi : MonoBehaviour
 
     void Awake()
     {
-        // Singleton deseni, sahnede sadece bir örnek kalacak þekilde
         if (Ornek == null) Ornek = this;
         else if (Ornek != this) Destroy(gameObject);
     }
 
     void Start()
     {
-        // Sliderlar statik kayýtlardan baþlatýlýr
         SetKamuoyuGuvenDegeri(kayitliKamuoyuDegeri);
         SetHukukGuvenDegeri(kayitliHukukDegeri);
 
-        // Slider referanslarý kontrolü
         if (kamuoyuGuvenSlider == null)
             Debug.LogError("HATA: BarYoneticisi - Kamuoyu Güven Slider'ý ATANMAMIÞ!");
         if (hukukGuvenSlider == null)
@@ -123,8 +120,6 @@ public class BarYoneticisi : MonoBehaviour
         DegistirKamuoyuGuven(kamuoyuDegisimMiktari);
         DegistirHukukGuven(hukukDegisimMiktari);
 
-        // Ýstersen log açabilirsin
-        // Debug.Log($"Nihai karar sonrasý güncelleme -> Kamuoyu: {kamuoyuGuvenSlider.value}, Hukuk: {hukukGuvenSlider.value}");
     }
 
     public void SetKamuoyuGuvenDegeri(float yeniDeger)

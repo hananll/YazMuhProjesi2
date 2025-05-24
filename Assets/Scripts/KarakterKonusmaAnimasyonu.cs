@@ -1,40 +1,75 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI; // Image bileþeni için
+using System.Collections; // Coroutine için
+
 public class KarakterKonusmaAnimasyonu : MonoBehaviour
 {
-    private Animator animator;
-    private readonly int konusuyorMuParamID = Animator.StringToHash("KonusuyorMu"); // Parametre ID'sini cache'lemek daha performanslýdýr
+    public Sprite mouthOpenSprite;   // Aðzýn açýk hali resmi
+    public Sprite mouthClosedSprite; // Aðzýn kapalý hali resmi
 
-    void Start()
+    private Image mouthImage;
+    private Coroutine talkingCoroutine;
+
+    // Aðýzýn açýk/kapalý kalma süresi
+    public float mouthToggleSpeed = 0.1f;
+
+    void Awake()
     {
-        animator = GetComponent<Animator>();
-        if (animator == null)
+        mouthImage = GetComponent<Image>();
+        if (mouthImage == null)
         {
-            Debug.LogError("Bu objeye atanmýþ bir Animator component'i bulunamadý!");
-            enabled = false; // Script'i devre dýþý býrak
-            return;
+            Debug.LogError(gameObject.name + ": Image bileþeni bulunamadý! KarakterKonusmaAnimasyonu script'ini bir UI Image objesine atayýn.");
+            enabled = false;
+        }
+        if (mouthOpenSprite == null || mouthClosedSprite == null)
+        {
+            Debug.LogError(gameObject.name + ": Aðýz açýk/kapalý resimleri Inspector'da atanmadý!");
+            enabled = false;
         }
     }
 
-    // Bu fonksiyonu diyalog sisteminizden konuþma baþladýðýnda çaðýrýn
     public void KonusmayaBasla()
     {
-        if (animator != null)
+        // Eðer zaten konuþma coroutine'i çalýþýyorsa durdur
+        if (talkingCoroutine != null)
         {
-            animator.SetBool(konusuyorMuParamID, true);
-            Debug.Log(gameObject.name + " konuþmaya baþladý animasyonu.");
+            StopCoroutine(talkingCoroutine);
+        }
+        // Yeni konuþma coroutine'ini baþlat
+        talkingCoroutine = StartCoroutine(AnimateMouthDirectly());
+    }
+
+    public void KonusmayiBitir()
+    {
+        // Konuþma coroutine'ini durdur
+        if (talkingCoroutine != null)
+        {
+            StopCoroutine(talkingCoroutine);
+            talkingCoroutine = null;
+        }
+        // Aðzý kapalý resme getir
+        if (mouthImage != null && mouthClosedSprite != null)
+        {
+            mouthImage.sprite = mouthClosedSprite;
         }
     }
 
-    // Bu fonksiyonu diyalog sisteminizden konuþma bittiðinde çaðýrýn
-    public void KonusmayiBitir()
+    IEnumerator AnimateMouthDirectly()
     {
-        if (animator != null)
+        // Sonsuz döngüde aðzý açýp kapat
+        while (true)
         {
-            animator.SetBool(konusuyorMuParamID, false);
-            Debug.Log(gameObject.name + " konuþmayý bitirdi animasyonu.");
+            if (mouthImage != null && mouthOpenSprite != null)
+            {
+                mouthImage.sprite = mouthOpenSprite; // Aðzý aç
+            }
+            yield return new WaitForSeconds(mouthToggleSpeed);
+
+            if (mouthImage != null && mouthClosedSprite != null)
+            {
+                mouthImage.sprite = mouthClosedSprite; // Aðzý kapat
+            }
+            yield return new WaitForSeconds(mouthToggleSpeed);
         }
     }
 }

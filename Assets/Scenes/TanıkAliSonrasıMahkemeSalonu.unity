@@ -1329,8 +1329,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -8.24, y: 363.908, z: -0.979}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 765, y: -33}
-  m_SizeDelta: {x: 525.0875, y: 285.261}
+  m_AnchoredPosition: {x: 768, y: -36}
+  m_SizeDelta: {x: 565.6085, y: 367.146}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &94493827
 MonoBehaviour:
@@ -1352,7 +1352,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 67f589afb352ef242b47ce5994269393, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1ae3e5538e039cc43ba32a58cbe0e6b0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6710,7 +6710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8c6f4080ecdd44dbfe039acb462e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanikAnimasyonKontrolu: {fileID: 1797381301}
+  sanikAnimasyonKontrolu: {fileID: 2032707405}
   hakimKonusmaPanel: {fileID: 553097378}
   hakimMetinText: {fileID: 2043024060}
   hakimAdiText: {fileID: 171369773}
@@ -6726,6 +6726,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c8ef0ce6a4d2b314fbd7cd5317254e89, type: 2}
   - {fileID: 11400000, guid: ae9ab5370c4dbfa42ae18c4955070015, type: 2}
   - {fileID: 11400000, guid: d379bbcfd1cbbdb4ca42c17cb89473db, type: 2}
+  - {fileID: 11400000, guid: 6195be00bd0e2744fa09d94e1ba13953, type: 2}
+  - {fileID: 11400000, guid: 4cce824d13a0efd42a666b72e0b3f2a0, type: 2}
+  - {fileID: 11400000, guid: e8356cfd8d541d941aaf0498e5d43141, type: 2}
   savciKonusma: {fileID: 450812463}
   "san\u0131kAvukat\u0131Konusma": {fileID: 2112984134}
 --- !u!1 &583282265
@@ -7701,12 +7704,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55d52e6fbf8d7b4999a58f3826edbf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magdurAnimationControl: {fileID: 0}
+  hakimKonusmaPanel: {fileID: 0}
+  hakimMetinText: {fileID: 0}
+  hakimAdiText: {fileID: 0}
+  hakimDevamEtButon: {fileID: 0}
   magdurKonusmaPanel: {fileID: 6557191}
   magdurMetinText: {fileID: 1991085932}
   magdurAdiText: {fileID: 138578035}
+  magdurDevamEtButon: {fileID: 957612256}
   magdurKapatButon: {fileID: 397223830}
   magdurButon: {fileID: 94493829}
-  magdurDevamEtButon: {fileID: 957612256}
   harfHiz: 0.05
   magdurDiyalogMetinleri:
   - {fileID: 11400000, guid: 906553b09abac6e42b8905dd0c9fc8d5, type: 2}
@@ -8938,7 +8946,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 490689411743634331, guid: e6983324e273994439219295a4e7c083, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 264.89
+      value: 277.34
       objectReference: {fileID: 0}
     - target: {fileID: 490689411743634331, guid: e6983324e273994439219295a4e7c083, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8946,11 +8954,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490689411743634331, guid: e6983324e273994439219295a4e7c083, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.55439043
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 490689411743634331, guid: e6983324e273994439219295a4e7c083, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -59
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 742340779399591713, guid: e6983324e273994439219295a4e7c083, type: 3}
       propertyPath: m_text
@@ -8964,13 +8972,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Tanik2Cagir
       objectReference: {fileID: 0}
+    - target: {fileID: 2456405695266620587, guid: e6983324e273994439219295a4e7c083, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3670266602671187868, guid: e6983324e273994439219295a4e7c083, type: 3}
       propertyPath: m_Name
       value: "Tan\u0131k\xC7a\u011F\u0131rmaPaneli"
       objectReference: {fileID: 0}
     - target: {fileID: 3670266602671187868, guid: e6983324e273994439219295a4e7c083, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3954586070619388406, guid: e6983324e273994439219295a4e7c083, type: 3}
       propertyPath: m_Type
@@ -10906,6 +10918,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922136878}
   m_CullTransparentMesh: 1
+--- !u!1 &923792316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 923792317}
+  - component: {fileID: 923792319}
+  - component: {fileID: 923792318}
+  m_Layer: 5
+  m_Name: "TarafMasas\u0131"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &923792317
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923792316}
+  m_LocalRotation: {x: -0.06688033, y: 0.01568136, z: 0.4639245, w: 0.8832073}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2110226481}
+  m_LocalEulerAnglesHint: {x: -7.625, y: -1.986, z: 55.556}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 730, y: -101}
+  m_SizeDelta: {x: 97.8855, y: 131.0638}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &923792318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923792316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1192307689, guid: f2be8de4a9798c14d95c627a0d28e64d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &923792319
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923792316}
+  m_CullTransparentMesh: 1
 --- !u!1 &932502169
 GameObject:
   m_ObjectHideFlags: 0
@@ -11115,6 +11202,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951882809}
   m_CullTransparentMesh: 1
+--- !u!1 &955820035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 955820036}
+  m_Layer: 5
+  m_Name: "Tan\u0131kA\u011F\u0131zUI"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &955820036
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955820035}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2032707408}
+  m_Father: {fileID: 1235160772}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &957612254
 GameObject:
   m_ObjectHideFlags: 0
@@ -14111,13 +14234,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235160769}
-  m_LocalRotation: {x: -0, y: 0.07360079, z: -0, w: 0.9972878}
+  m_LocalRotation: {x: -0, y: 0.18579398, z: -0, w: 0.98258877}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2334, y: 1.2334, z: 1.2334}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 955820036}
   m_Father: {fileID: 1383495217}
-  m_LocalEulerAnglesHint: {x: 0, y: 8.442, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 21.415, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 245, y: 16}
@@ -15900,7 +16024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1429444634
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18704,7 +18828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1677093567
 Transform:
   m_ObjectHideFlags: 0
@@ -18743,8 +18867,6 @@ MonoBehaviour:
   ertelemeTutuksuzYargilamaKararButonu: {fileID: 699426392}
   kararGirisPaneli: {fileID: 59397383}
   barYoneticisi: {fileID: 1261263642}
-  arkaPlanYoneticisi: {fileID: 2059591412}
-  digerAnaUIArayuzuCanvasGroup: {fileID: 2110226480}
   aktifDava: {fileID: 11400000, guid: 94ef85d6c35dcc842894a613ce977eff, type: 2}
 --- !u!1 &1691103045
 GameObject:
@@ -19521,6 +19643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e95253a5ab88b9342981c2d4e67fae56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magdurAvukatiAnimationControl: {fileID: 0}
   magdurAvukatiKonusmaPanel: {fileID: 1835061390}
   magdurAvukatiMetinText: {fileID: 1046582189}
   magdurAvukatiAdiText: {fileID: 271760377}
@@ -19534,6 +19657,7 @@ MonoBehaviour:
   savciKonusma: {fileID: 450812463}
   "san\u0131kAvukat\u0131Konusma": {fileID: 2112984134}
   magdurKonusma: {fileID: 681076423}
+  tokmakSistemiYoneticisi: {fileID: 0}
 --- !u!1 &1796963757
 GameObject:
   m_ObjectHideFlags: 0
@@ -19679,8 +19803,6 @@ GameObject:
   - component: {fileID: 1797381298}
   - component: {fileID: 1797381300}
   - component: {fileID: 1797381299}
-  - component: {fileID: 1797381302}
-  - component: {fileID: 1797381301}
   m_Layer: 5
   m_Name: "San\u0131kPortre"
   m_TagString: Untagged
@@ -19704,8 +19826,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.49479166, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -222, y: -7}
-  m_SizeDelta: {x: 393.5611, y: 328.3757}
+  m_AnchoredPosition: {x: -224, y: 2}
+  m_SizeDelta: {x: 418.78, y: 360.1831}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1797381299
 MonoBehaviour:
@@ -19745,39 +19867,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797381297}
   m_CullTransparentMesh: 1
---- !u!114 &1797381301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797381297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d9684f69ba42ed40848538f409d0789, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!95 &1797381302
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797381297}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5e88066c41a93214da4a1429cd7087af, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1802632655
 GameObject:
   m_ObjectHideFlags: 0
@@ -19974,7 +20063,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -22380,8 +22469,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -254, y: -96}
-  m_SizeDelta: {x: 247.67, y: 157.97}
+  m_AnchoredPosition: {x: -254, y: -87.492}
+  m_SizeDelta: {x: 247.67, y: 174.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2011163209
 MonoBehaviour:
@@ -22729,6 +22818,97 @@ PrefabInstance:
       addedObject: {fileID: 1398673505}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28922fee5d8f2ee43977feeb3697cfd9, type: 3}
+--- !u!1 &2032707404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2032707408}
+  - component: {fileID: 2032707407}
+  - component: {fileID: 2032707406}
+  - component: {fileID: 2032707405}
+  m_Layer: 5
+  m_Name: "A\u011F\u0131zKapal\u0131Image"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2032707405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032707404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9684f69ba42ed40848538f409d0789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouthOpenSprite: {fileID: 21300000, guid: 36bb3e8b797407443924ba2480ecbf35, type: 3}
+  mouthClosedSprite: {fileID: 21300000, guid: 179213ed3694edc4ca6c4bdfd51f9a42, type: 3}
+  mouthToggleSpeed: 0.1
+--- !u!114 &2032707406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032707404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 179213ed3694edc4ca6c4bdfd51f9a42, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2032707407
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032707404}
+  m_CullTransparentMesh: 1
+--- !u!224 &2032707408
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032707404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 955820036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 7.4, y: 91.24406}
+  m_SizeDelta: {x: 23.4533, y: 4.3967}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2043024058
 GameObject:
   m_ObjectHideFlags: 0
@@ -23354,6 +23534,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 94493826}
+  - {fileID: 923792317}
   - {fileID: 1027215982}
   - {fileID: 1817718403}
   - {fileID: 1952536234}
@@ -23454,6 +23635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0396d4f906ad8143936f5125fe879ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sanikAvukatiAnimationControl: {fileID: 0}
   sanikAvukatiKonusmaPanel: {fileID: 1082137967}
   sanikAvukatiMetinText: {fileID: 1837185131}
   sanikAvukatiAdiText: {fileID: 1653202868}

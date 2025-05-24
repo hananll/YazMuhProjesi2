@@ -19,9 +19,8 @@ public class TanikCagirici : MonoBehaviour
     [Header("Sahne Adlarý")]
     public string tanik1SahneAdi;
     public string tanik2SahneAdi;
-    public string anaSahneAdi; // ifadesi biten tanýðýn dönüþ sahnesi
+    public string anaSahneAdi; 
 
-    // Tanýk çaðýrma fonksiyonu
     public void Tanik1Cagir()
     {
         sesOynatici.PlayOneShot(tanikSesi);
@@ -37,7 +36,6 @@ public class TanikCagirici : MonoBehaviour
         EbruGurCagirmaGecisEkrani.SetActive(true);
     }
 
-    // Tanýk ifadesini sonlandýrma fonksiyonlarý
     public void Tanik1IfadesiniSonlandir()
     {
         sesOynatici.PlayOneShot(tanikSesi);
@@ -52,10 +50,8 @@ public class TanikCagirici : MonoBehaviour
         EbruGurBitirmeGecisEkrani.SetActive(true);
     }
 
-    // Ortak geçiþ coroutine’leri
     private IEnumerator TanikGecisi(string tanikAdi, string sahneAdi)
     {
-        // gecisEkrani.SetActive(true);
         sesOynatici.PlayOneShot(tanikSesi);
         gecisYazisi.text = $"{tanikAdi} çaðrýlýyor...";
         
@@ -67,7 +63,6 @@ public class TanikCagirici : MonoBehaviour
 
     private IEnumerator SonlandirmaGecisi(string mesaj, string sahneAdi)
     {
-       // gecisEkrani.SetActive(true);
         gecisYazisi.text = mesaj;
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(sahneAdi);

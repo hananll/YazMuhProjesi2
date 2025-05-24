@@ -82,7 +82,7 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
         if (kararGirisPaneliObject == null) return;
         kararGirisPaneliObject.SetActive(false);
         ArkaPlanVeDigerUIAyarla(false);
-        SceneManager.LoadScene(1);
+        
     }
 
     void HukmuOnayla()

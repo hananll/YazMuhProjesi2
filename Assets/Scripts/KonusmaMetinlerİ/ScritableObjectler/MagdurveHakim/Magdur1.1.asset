@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
   m_Name: Magdur1.1
   m_EditorClassIdentifier: 
-  metin: "Say\u0131n Hakim, e\u015Fim bana yakla\u015F\u0131k 2 y\u0131ld\u0131r
-    \u015Fiddet uyguluyor her seferinde affettim..."
+  metin: "On y\u0131ll\u0131k evliyiz. \u0130lk y\u0131llar \xE7ok g\xFCzeldi. Ama
+    zamanla Hasan de\u011Fi\u015Fti. K\u0131skan\xE7l\u0131k, ba\u011F\u0131rmalar,
+    hakaretler derken art\u0131k \u015Fiddete d\xF6n\xFC\u015Ft\xFC. \u0130ki y\u0131ld\u0131r
+    sustum, k\u0131z\u0131m i\xE7in. Ama o gece\u2026 "
   konusmaciAdi: "Ma\u011Fdur"
   konusmaciPortresi: {fileID: 0}

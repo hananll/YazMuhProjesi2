@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
+  m_Name: MAvukat1.2
+  m_EditorClassIdentifier: 
+  metin: "...tan\u0131klar ve mesaj kay\u0131tlar\u0131yla bu durum sabitlenmi\u015Ftir.
+    M\xFCvekkilimin g\xFCvenli\u011Fi i\xE7in yaln\u0131zca ceza de\u011Fil, koruma
+    da \u015Fartt\u0131r. San\u0131\u011F\u0131n en \xFCst s\u0131n\u0131rdan cezaland\u0131r\u0131lmas\u0131n\u0131
+    talep ediyoruz."
+  konusmaciAdi: Avukat
+  konusmaciPortresi: {fileID: 0}

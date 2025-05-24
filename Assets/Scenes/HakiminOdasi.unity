@@ -2103,6 +2103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 872792972}
   buttonClickSound: {fileID: 8300000, guid: 9f60dd980a40f1348bb0f16fff489ce8, type: 3}
+  "ileriBa\u015Flat": 1
+  baslangicSuresi: 10
 --- !u!4 &872792971
 Transform:
   m_ObjectHideFlags: 0
@@ -2531,6 +2533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6031565e54977d74981893b58c7a05d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gavelManager: {fileID: 0}
 --- !u!4 &992241801
 Transform:
   m_ObjectHideFlags: 0
@@ -4259,7 +4262,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 992241800}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: DavayaDon
+        m_MethodName: EmekEkrani
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

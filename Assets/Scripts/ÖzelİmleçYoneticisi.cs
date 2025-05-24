@@ -13,7 +13,7 @@ public class OzelImlecYoneticisi : MonoBehaviour
 
     void Start()
     {
-        // Oyun başlar başlamaz özel imleci ayarla
+        
         OzelImleciAyarla();
     }
 
@@ -29,10 +29,8 @@ public class OzelImlecYoneticisi : MonoBehaviour
         }
     }
 
-    // Opsiyonel: Oyun sonlandığında varsayılan sistem imlecine dönmek iyi bir pratiktir
     void OnApplicationQuit()
     {
-        // Varsayılan sistem imlecine dön
         Cursor.SetCursor(null, Vector2.zero, imlecModu);
     }
 }

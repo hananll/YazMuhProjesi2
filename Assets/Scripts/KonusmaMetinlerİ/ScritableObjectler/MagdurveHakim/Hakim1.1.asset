@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
   m_Name: Hakim1.1
   m_EditorClassIdentifier: 
-  metin: "K\u0131z\u0131m peki neden daha \xF6ncesinde \u015Fikayet etmedin."
+  metin: "Bu s\xFCrecin uzun s\xFCredir devam etti\u011Fini belirttiniz. Peki neden
+    daha \xF6nce yetkililere ba\u015Fvurmad\u0131n\u0131z?\n\n"
   konusmaciAdi: Hakim
   konusmaciPortresi: {fileID: 0}

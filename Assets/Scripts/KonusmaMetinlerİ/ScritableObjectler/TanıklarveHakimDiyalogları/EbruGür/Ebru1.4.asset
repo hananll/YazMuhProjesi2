@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
+  m_Name: Ebru1.4
+  m_EditorClassIdentifier: 
+  metin: "...k\u0131z\u0131na zarar vermesinden korktu\u011Funu s\xF6yledi. O gece
+    bana mesaj att\u0131: \"Polisi ara, bu kez \xE7ok k\xF6t\xFC.\" Hemen 112'yi
+    arad\u0131m. O ya\u015Fad\u0131klar\u0131n\u0131 y\u0131llarca i\xE7ine atm\u0131\u015F.
+    \u015Eimdi art\u0131k susmad\u0131\u011F\u0131 i\xE7in buraday\u0131z."
+  konusmaciAdi: "Tan\u0131k"
+  konusmaciPortresi: {fileID: 0}
