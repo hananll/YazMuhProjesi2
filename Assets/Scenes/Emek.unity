@@ -1336,17 +1336,18 @@ MonoBehaviour:
     Kay\u0131t Sistemi:\tAn\u0131l Han Ayd\u0131n  \r\nHata Ay\u0131klama (Debugging):\tMuammer
     Emre Bayrak  \r\nI\u015F\u0131kland\u0131rma & G\xF6lgelendirme:\tYunus Emre
     \u0130pek  \r\nSahne Ge\xE7i\u015Fleri:\tMuammer Emre Bayrak  \r\nTest & Geri
-    Bildirim:\tG\xF6khan \xC7ataly\xFCrek, Talha \xC7i\xE7ek, Bilgehan Eren \xC7elik 
-    \r\nPerformans Optimizasyonu:\tMuammer Emre Bayrak  \r\nMain Menu Tasar\u0131m\u0131:\tMuammer
-    Emre Bayrak  \r\nSave/Load Sistemi:\tAn\u0131l Han Ayd\u0131n  \r\nShader Efektleri:\tAn\u0131l
-    Han Ayd\u0131n  \r\nTutorial Sistemi:\tMuammer Emre Bayrak  \r\nKarakter Seslendirmeleri:\tYunus
+    Bildirim:\tG\xF6khan \xC7ataly\xFCrek, Talha \xC7i\xE7ek, Bilgehan Eren \xC7elik,Veysi
+    Demir,\u015Eahin \xDC\xE7p\u0131nar,R\xFCmeysa Sar\u0131ca  \r\nPerformans Optimizasyonu:\tMuammer
+    Emre Bayrak  \r\nMain Menu Tasar\u0131m\u0131:\tMuammer Emre Bayrak  \r\nSave/Load
+    Sistemi:\tAn\u0131l Han Ayd\u0131n  \r\nShader Efektleri:\tAn\u0131l Han Ayd\u0131n 
+    \r\nTutorial Sistemi:\tMuammer Emre Bayrak  \r\nKarakter Seslendirmeleri:\tYunus
     Emre \u0130pek  \r\nBuild & Platform Ayarlar\u0131:\tMuammer Emre Bayrak  \r\nDok\xFCmantasyon:\tAn\u0131l
     Han Ayd\u0131n  \r\nS\xFCr\xFCm Takibi:\tMuammer Emre Bayrak  \r\nSanat Y\xF6netimi:\tYunus
     Emre \u0130pek  \r\nKamera Hareketleri:\tMuammer Emre Bayrak  \r\n\xD6zel Efektler:\tAn\u0131l
     Han Ayd\u0131n  \r\nOyun Mekanikleri:\tMuammer Emre Bayrak, An\u0131l Han Ayd\u0131n 
     \r\nSosyal Medya Haz\u0131rl\u0131\u011F\u0131:\tAn\u0131l Han Ayd\u0131n  \r\nYay\u0131nlama
-    Haklar\u0131:\tProje Ekibi  \r\nHukuk Dan\u0131\u015Fman\u0131:\tAv. G\xF6khan
-    \xC7ataly\xFCrek  \r\n"
+    Haklar\u0131:\tNextGen Devs Tak\u0131m\u0131  \r\nHukuk Dan\u0131\u015Fman\u0131:\tAv.
+    G\xF6khan \xC7ataly\xFCrek  \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
