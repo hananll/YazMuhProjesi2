@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
   m_Name: Savci1.1
   m_EditorClassIdentifier: 
-  metin: "Dosya i\xE7eri\u011Fi, tan\u0131k beyanlar\u0131 ve ma\u011Fdur ifadesi
-    birlikte de\u011Ferlendirildi\u011Finde, san\u0131\u011F\u0131n e\u015Fine kar\u015F\u0131
-    kasten yaralama su\xE7unu i\u015Fledi\u011Fi anla\u015F\u0131lm\u0131\u015Ft\u0131r.
-    T\xFCrk Ceza Kanunu 86/2 ve 86/3-a uyar\u0131nca san\u0131\u011F\u0131n 3 y\u0131l
-    6 ay hapis cezas\u0131yla cezaland\u0131r\u0131lmas\u0131n\u0131 kamu ad\u0131na
-    talep ederiz."
+  metin: "Say\u0131n Hakim,\nSan\u0131k,ma\u011Fduru kasten yaralam\u0131\u015Ft\u0131r.
+    Eldeki deliller ve tan\u0131k beyanlar\u0131 bu durumu a\xE7\u0131k\xE7a g\xF6stermektedir.
+    Yaralama basit olsa da, e\u015Fe kar\u015F\u0131 i\u015Flenmesi su\xE7un niteli\u011Fini
+    de\u011Fi\u015Ftiriyor.Bu nedenle, san\u0131\u011F\u0131n T\xFCrk Ceza Kanunu
+    86/1 ve 86/2 uyar\u0131nca 6 ay hapis cezas\u0131yla cezaland\u0131r\u0131lmas\u0131n\u0131
+    talep ediyorum.\n"
   konusmaciAdi: "Cumhuriyet Savc\u0131s\u0131 An\u0131l Han Ayd\u0131n:"
   konusmaciPortresi: {fileID: 0}
-  sesDosyasi: {fileID: 0}
+  sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

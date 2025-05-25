@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: TestDavasi
   m_EditorClassIdentifier: 
   detaylar:
-    davaID: Test01
-    davaAciklamasi: "Bu bir test davas\u0131d\u0131r."
-    idealHapisGun: 365
-    idealParaCezasi: 0
+    davaID: Dava1
+    davaAciklamasi: "Hasan Kara - Elif Kara Duru\u015Fmas\u0131"
+    idealHapisGun: 0
+    idealParaCezasi: 30000
     idealBeraatOlmalydi: 0
-    ertelemeTutuklu_KamuoyuEtkisi: -10
+    ertelemeTutuklu_KamuoyuEtkisi: -2
     ertelemeTutuklu_HukukEtkisi: -5
     ertelemeTutuksuz_KamuoyuEtkisi: 10
     ertelemeTutuksuz_HukukEtkisi: 10
     davayiDusurmekGecerliMi: 0
-    davayiDusurGecerli_KamuoyuEtkisi: -5
-    davayiDusurGecerli_HukukEtkisi: 5
-    davayiDusurGecersiz_KamuoyuEtkisi: -5
-    davayiDusurGecersiz_HukukEtkisi: -5
+    davayiDusurGecerli_KamuoyuEtkisi: -0.53
+    davayiDusurGecerli_HukukEtkisi: 1.17
+    davayiDusurGecersiz_KamuoyuEtkisi: -1.78
+    davayiDusurGecersiz_HukukEtkisi: -1.23

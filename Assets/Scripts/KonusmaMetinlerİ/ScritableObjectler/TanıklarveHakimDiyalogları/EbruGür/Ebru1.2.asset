@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
   m_Name: Ebru1.2
   m_EditorClassIdentifier: 
-  metin: "Hay\u0131r, sadece Elif arac\u0131l\u0131\u011F\u0131yla tan\u0131r\u0131m.\n\n"
+  metin: "\u0130smim Ebru G\xFCr, 41 ya\u015F\u0131nday\u0131m Elifle ayn\u0131 i\u015F
+    yerinde yakla\u015F\u0131k 3 y\u0131ld\u0131r \xE7al\u0131\u015F\u0131yorum yak\u0131n
+    arkada\u015F\u0131m say\u0131l\u0131r."
   konusmaciAdi: "Tan\u0131k"
   konusmaciPortresi: {fileID: 0}
   sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

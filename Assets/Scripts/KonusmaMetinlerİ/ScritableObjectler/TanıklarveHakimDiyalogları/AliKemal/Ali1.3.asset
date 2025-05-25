@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
   m_Name: Ali1.3
   m_EditorClassIdentifier: 
-  metin: "Ona kalabilece\u011Fi bir yer ayarlayabilece\u011Fimi s\xF6yledim. Ama
-    'Hasan beni bulur' diye reddetti. Elif\u2019in korkusu g\xF6zlerinin i\xE7indeydi.
-    Korktu\u011Fu \u015Fey bo\u015Funa de\u011Filmi\u015F, g\xF6r\xFCyoruz."
+  metin: "Hasan Bey'in d\u0131\u015Farda herhangi bir aksili\u011Fini g\xF6rmedim
+    fakat Elif Han\u0131m'a kar\u015F\u0131 ayn\u0131 oldu\u011Funu s\xF6yleyemem."
   konusmaciAdi: "Tan\u0131k"
   konusmaciPortresi: {fileID: 0}
   sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
   m_Name: Hakim1.2Aliye
   m_EditorClassIdentifier: 
-  metin: "San\u0131k ve ma\u011Fdur hakk\u0131nda g\xF6zlemlerinizi payla\u015F\u0131n.\n\n"
+  metin: "L\xFCtfen kimli\u011Finizi ve san\u0131k ma\u011Fdur hakk\u0131ndaki bildiklerinizi
+    payla\u015F\u0131n."
   konusmaciAdi: Hakim
   konusmaciPortresi: {fileID: 0}
   sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

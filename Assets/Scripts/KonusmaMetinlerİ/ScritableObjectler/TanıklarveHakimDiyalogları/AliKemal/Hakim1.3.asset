@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Hakim1.3
   m_EditorClassIdentifier: 
   metin: "Te\u015Fekk\xFCr ederiz. Tan\u0131klar dinlenmi\u015Ftir. Avukatlar\u0131n
-    son beyanlar\u0131n\u0131 alaca\u011F\u0131z.Ali Bey k\xFCrs\xFCden ayr\u0131labilirsiniz.\n\n"
+    beyanlar\u0131n\u0131 al\u0131p, Cumhuriyet Savc\u0131s\u0131 ile m\xFCtalaa
+    yap\u0131lacakt\u0131r.Ali Bey k\xFCrs\xFCden ayr\u0131labilirsiniz.\n\n"
   konusmaciAdi: Hakim
   konusmaciPortresi: {fileID: 0}
   sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

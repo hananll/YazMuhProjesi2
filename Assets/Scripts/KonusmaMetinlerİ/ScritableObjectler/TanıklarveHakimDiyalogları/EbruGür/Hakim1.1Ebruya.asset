@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
   m_Name: Hakim1.1Ebruya
   m_EditorClassIdentifier: 
-  metin: "Tan\u0131k Ebru G\xFCr, l\xFCtfen kim oldu\u011Funuzu tan\u0131t\u0131n."
+  metin: "Say\u0131n, Ebru G\xFCr bildiklerinizi,dosdo\u011Fru s\xF6yleyece\u011Finize
+    ve hi\xE7bir \u015Feyi saklamayaca\u011F\u0131n\u0131za namusunuz ve vicdan\u0131z
+    \xFCzerine yemin ediyor musunuz?"
   konusmaciAdi: Hakim
   konusmaciPortresi: {fileID: 0}
   sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

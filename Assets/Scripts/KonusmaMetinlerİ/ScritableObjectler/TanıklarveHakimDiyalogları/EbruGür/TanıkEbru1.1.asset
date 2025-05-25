@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e71514a85a88604c84e01428c2a4ba9, type: 3}
   m_Name: "Tan\u0131kEbru1.1"
   m_EditorClassIdentifier: 
-  metin: "Ebru G\xFCr, 41 ya\u015F\u0131nday\u0131m. Bir tekstil at\xF6lyesinde \xE7al\u0131\u015F\u0131yorum.
-    Elif Kara ile be\u015F y\u0131ld\u0131r ayn\u0131 i\u015F yerindeyiz. Yak\u0131n
-    arkada\u015F\u0131m say\u0131l\u0131r."
+  metin: "Evet, say\u0131n hakim yemin ediyorum."
   konusmaciAdi: "Tan\u0131k"
   konusmaciPortresi: {fileID: 0}
   sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}
