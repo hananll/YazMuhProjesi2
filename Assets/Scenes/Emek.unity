@@ -434,8 +434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e5e485342be8af42ab50c23d73916c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1814535018}
-  buttonClickSound: {fileID: 8300000, guid: 3119a99547b6aa844a90e429be33a932, type: 3}
+  audioSource: {fileID: 1226579023}
+  buttonClickSound: {fileID: 8300000, guid: df8e75f5cb76f2f498acac4981f1ec4d, type: 3}
   "ileriBa\u015Flat": 1
   baslangicSuresi: 90
 --- !u!4 &583467212
@@ -746,8 +746,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -984.80646, y: 873.3859}
-  m_SizeDelta: {x: 1943.3597, y: 3883.614}
+  m_AnchoredPosition: {x: -2233.659, y: 1254}
+  m_SizeDelta: {x: 2552.207, y: 3883.614}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &969883587
 MonoBehaviour:
@@ -906,8 +906,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0010528, y: 0}
-  m_SizeDelta: {x: 1101.5, y: 494.5}
+  m_AnchoredPosition: {x: 333, y: 259}
+  m_SizeDelta: {x: 3599.205, y: 494.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1224310995
 MonoBehaviour:
@@ -977,6 +977,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224310993}
   m_CullTransparentMesh: 1
+--- !u!1 &1226579022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1226579024}
+  - component: {fileID: 1226579023}
+  m_Layer: 0
+  m_Name: "Kapan\u0131sM\xFCzik"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1226579023
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226579022}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: df8e75f5cb76f2f498acac4981f1ec4d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1226579024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226579022}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 751.55426, y: 498.33585, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1242304172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,7 +1305,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1044.7953, y: 360.1458}
+  m_SizeDelta: {x: 4452.293, y: 525.7886}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1632389304
 MonoBehaviour:
@@ -1199,36 +1327,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "         Proje Y\xF6neticisi:             Muammer Emre Bayrak  \r\n\r\n        
-    Oyun Tasar\u0131m\u0131:                Muammer Emre Bayrak  \r\n\r\n        
-    Senaryo Yaz\u0131m\u0131:               An\u0131l Han Ayd\u0131n  \r\n\r\n        
-    Kodlama (C#):                 Muammer Emre Bayrak  \r\n\r\n         UI/UX Tasar\u0131m\u0131:              
-    Yunus Emre \u0130pek  \r\n\r\n         Ses Tasar\u0131m\u0131:                
-    Muammer Emre Bayrak  \r\n\r\n         Arka Plan M\xFCzikleri:          An\u0131l
-    Han Ayd\u0131n  \r\n\r\n         Animasyonlar:                 Yunus Emre \u0130pek 
-    \r\n\r\n         Karakter Tasar\u0131m\u0131:            Muammer Emre Bayrak 
-    \r\n\r\n         Aray\xFCz Geli\u015Ftirme:            Yunus Emre \u0130pek 
-    \r\n\r\n         Veritaban\u0131 & Kay\u0131t Sistemi:   An\u0131l Han Ayd\u0131n 
-    \r\n\r\n         Hata Ay\u0131klama (Debugging):    Muammer Emre Bayrak  \r\n\r\n        
-    I\u015F\u0131kland\u0131rma & G\xF6lgelendirme: Yunus Emre \u0130pek  \r\n\r\n        
-    Sahne Ge\xE7i\u015Fleri:              Muammer Emre Bayrak  \r\n\r\n         Test
-    & Geri Bildirim:         An\u0131l Han Ayd\u0131n  \r\n\r\n         Performans
-    Optimizasyonu:     Muammer Emre Bayrak  \r\n\r\n         Yapay Zeka Davran\u0131\u015F\u0131:        
-    Yunus Emre \u0130pek  \r\n\r\n         Main Menu Tasar\u0131m\u0131:          
-    Muammer Emre Bayrak  \r\n\r\n         Save/Load Sistemi:            Muammer Emre
-    Bayrak  \r\n\r\n         Shader Efektleri:             An\u0131l Han Ayd\u0131n 
-    \r\n\r\n         Tutorial Sistemi:             Muammer Emre Bayrak  \r\n\r\n        
-    Karakter Seslendirmeleri:     Yunus Emre \u0130pek  \r\n\r\n         Build &
-    Platform Ayarlar\u0131:    Muammer Emre Bayrak  \r\n\r\n         Dok\xFCmantasyon:               
-    An\u0131l Han Ayd\u0131n  \r\n\r\n         Beta Test S\xFCreci:             Muammer
-    Emre Bayrak  \r\n\r\n         S\xFCr\xFCm Takibi:                 Muammer Emre
-    Bayrak  \r\n\r\n         Sanat Y\xF6netimi:               Yunus Emre \u0130pek 
-    \r\n\r\n         Kamera Hareketleri:           Muammer Emre Bayrak  \r\n\r\n        
-    \xD6zel Efektler:                An\u0131l Han Ayd\u0131n  \r\n\r\n         Oyun
-    Mekanikleri:             Muammer Emre Bayrak  \r\n\r\n         Men\xFC Navigasyonu:            
-    Yunus Emre \u0130pek  \r\n\r\n         Sosyal Medya Haz\u0131rl\u0131\u011F\u0131:      
-    An\u0131l Han Ayd\u0131n  \r\n\r\n         Yay\u0131nlama Haz\u0131rl\u0131\u011F\u0131:         
-    Muammer Emre Bayrak  \r\n"
+  m_text: "Proje Y\xF6neticisi:\tAn\u0131l Han Ayd\u0131n  \r\nOyun Tasar\u0131m\u0131:\tMuammer
+    Emre Bayrak  \r\nSenaryo Yaz\u0131m\u0131:\tYunus Emre \u0130pek  \r\nKodlama
+    (C#):\tAn\u0131l Han Ayd\u0131n, Muammer Emre Bayrak  \r\nUI/UX Tasar\u0131m\u0131:\tYunus
+    Emre \u0130pek  \r\nSes Tasar\u0131m\u0131:\tMuammer Emre Bayrak, An\u0131l Han
+    Ayd\u0131n  \r\nAnimasyonlar:\tAn\u0131l Han Ayd\u0131n, Muammer Emre Bayrak 
+    \r\nKarakter Tasar\u0131m\u0131:\tMuammer Emre Bayrak  \r\nVeritaban\u0131 &
+    Kay\u0131t Sistemi:\tAn\u0131l Han Ayd\u0131n  \r\nHata Ay\u0131klama (Debugging):\tMuammer
+    Emre Bayrak  \r\nI\u015F\u0131kland\u0131rma & G\xF6lgelendirme:\tYunus Emre
+    \u0130pek  \r\nSahne Ge\xE7i\u015Fleri:\tMuammer Emre Bayrak  \r\nTest & Geri
+    Bildirim:\tG\xF6khan \xC7ataly\xFCrek, Talha \xC7i\xE7ek, Bilgehan Eren \xC7elik 
+    \r\nPerformans Optimizasyonu:\tMuammer Emre Bayrak  \r\nMain Menu Tasar\u0131m\u0131:\tMuammer
+    Emre Bayrak  \r\nSave/Load Sistemi:\tAn\u0131l Han Ayd\u0131n  \r\nShader Efektleri:\tAn\u0131l
+    Han Ayd\u0131n  \r\nTutorial Sistemi:\tMuammer Emre Bayrak  \r\nKarakter Seslendirmeleri:\tYunus
+    Emre \u0130pek  \r\nBuild & Platform Ayarlar\u0131:\tMuammer Emre Bayrak  \r\nDok\xFCmantasyon:\tAn\u0131l
+    Han Ayd\u0131n  \r\nS\xFCr\xFCm Takibi:\tMuammer Emre Bayrak  \r\nSanat Y\xF6netimi:\tYunus
+    Emre \u0130pek  \r\nKamera Hareketleri:\tMuammer Emre Bayrak  \r\n\xD6zel Efektler:\tAn\u0131l
+    Han Ayd\u0131n  \r\nOyun Mekanikleri:\tMuammer Emre Bayrak, An\u0131l Han Ayd\u0131n 
+    \r\nSosyal Medya Haz\u0131rl\u0131\u011F\u0131:\tAn\u0131l Han Ayd\u0131n  \r\nYay\u0131nlama
+    Haklar\u0131:\tProje Ekibi  \r\nHukuk Dan\u0131\u015Fman\u0131:\tAv. G\xF6khan
+    \xC7ataly\xFCrek  \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1291,7 +1409,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -183.90472, y: -2631.623, z: -237.11377, w: 16.320549}
+  m_margin: {x: -1287.5201, y: -2078.989, z: -2443.996, w: 16.320549}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1489,3 +1607,4 @@ SceneRoots:
   - {fileID: 303655187}
   - {fileID: 583467212}
   - {fileID: 942142569}
+  - {fileID: 1226579024}

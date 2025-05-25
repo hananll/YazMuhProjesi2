@@ -17,3 +17,4 @@ MonoBehaviour:
     olmam, hayatta kald\u0131\u011F\u0131m\u0131n kan\u0131t\u0131. \u015Eikayet\xE7iyim."
   konusmaciAdi: "Ma\u011Fdur"
   konusmaciPortresi: {fileID: 0}
+  sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

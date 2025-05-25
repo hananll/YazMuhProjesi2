@@ -17,3 +17,4 @@ MonoBehaviour:
     ama..."
   konusmaciAdi: "San\u0131k"
   konusmaciPortresi: {fileID: 21300000, guid: de6876835af688b4d8b0055aa551b78b, type: 3}
+  sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

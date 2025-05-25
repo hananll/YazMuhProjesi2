@@ -29,7 +29,9 @@ public class SanikveHakimKonusma : MonoBehaviour
     private KarakterKonusmaAnimasyonu sonKonusanAnimasyonKontrolu = null;
 
     public SavciKonusma savciKonusma;
-   public SanıkAvukatıKonusma sanıkAvukatıKonusma;
+    public SanıkAvukatıKonusma sanıkAvukatıKonusma;
+
+    public AudioSource diyalogAudioSource;
 
     void Start()
     {
@@ -100,6 +102,11 @@ public class SanikveHakimKonusma : MonoBehaviour
         }
         // --- EKLENDİ SONU ---
 
+        //Konusma Sesi
+        if (diyalogAudioSource != null && diyalogAudioSource.isPlaying)
+        {
+            diyalogAudioSource.Stop();
+        }
 
         KonusmaMetniData mevcutKonusma = diyalogMetinleri[mevcutMetinIndex];
 
@@ -121,6 +128,14 @@ public class SanikveHakimKonusma : MonoBehaviour
             if (hakimKonusmaPanel != null) hakimKonusmaPanel.SetActive(true);
             if (hakimAdiText != null) hakimAdiText.text = mevcutKonusma.konusmaciAdi;
             if (hakimMetinText != null) mevcutMetinAnimasyonu = StartCoroutine(MetniHarfHarfGoster(hakimMetinText, mevcutKonusma.metin));
+
+            // --- EKLENDİ: Ses çalma ---
+            if (diyalogAudioSource != null && mevcutKonusma.sesDosyasi != null)
+            {
+                diyalogAudioSource.clip = mevcutKonusma.sesDosyasi;
+                diyalogAudioSource.Play();
+            }
+            // --- EKLENDİ SONU ---
         }
         else if (mevcutKonusma.konusmaciAdi == "Sanık" || mevcutKonusma.konusmaciAdi=="Tanık")
         {
@@ -136,6 +151,15 @@ public class SanikveHakimKonusma : MonoBehaviour
             if (sanikKonusmaPanel != null) sanikKonusmaPanel.SetActive(true);
             if (sanikAdiText != null) sanikAdiText.text = mevcutKonusma.konusmaciAdi;
             if (sanikMetinText != null) mevcutMetinAnimasyonu = StartCoroutine(MetniHarfHarfGoster(sanikMetinText, mevcutKonusma.metin));
+
+            // --- EKLENDİ: Ses çalma ---
+            if (diyalogAudioSource != null && mevcutKonusma.sesDosyasi != null)
+            {
+                diyalogAudioSource.clip = mevcutKonusma.sesDosyasi;
+                diyalogAudioSource.Play();
+            }
+            // --- EKLENDİ SONU ---
+
         }
         else
         {
@@ -158,6 +182,15 @@ public class SanikveHakimKonusma : MonoBehaviour
             yield return new WaitForSeconds(harfHiz);
         }
 
+        // --- DEĞİŞİKLİK BURADA: Metin animasyonu bittiğinde sesi durdur ---
+        // Eğer ses hala çalıyorsa (yani metinden daha uzunsa), durdur.
+        if (diyalogAudioSource != null && diyalogAudioSource.isPlaying)
+        {
+            diyalogAudioSource.Stop();
+        }
+        // --- DEĞİŞİKLİK SONU ---
+
+
         // Animasyon bittikten sonra do�ru devam et butonunu aktif et
         if (metinAlani == hakimMetinText && hakimDevamEtButon != null && hakimKonusmaPanel.activeSelf)
         {
@@ -177,6 +210,14 @@ public class SanikveHakimKonusma : MonoBehaviour
         {
             sonKonusanAnimasyonKontrolu.KonusmayiBitir();
             sonKonusanAnimasyonKontrolu = null;
+        }
+        // --- EKLENDİ SONU ---
+
+
+        // --- EKLENDİ: Diyalog bittiğinde sesi durdur ---
+        if (diyalogAudioSource != null && diyalogAudioSource.isPlaying)
+        {
+            diyalogAudioSource.Stop();
         }
         // --- EKLENDİ SONU ---
 

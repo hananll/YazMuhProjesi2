@@ -16,3 +16,4 @@ MonoBehaviour:
     kanaatindeyiz. Lehe h\xFCk\xFCmlerin uygulanmas\u0131n\u0131 talep ediyoruz..."
   konusmaciAdi: ' Avukat'
   konusmaciPortresi: {fileID: 0}
+  sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

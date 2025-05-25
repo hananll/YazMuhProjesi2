@@ -19,6 +19,9 @@ public class SanıkAvukatıKonusma : MonoBehaviour
     public Button sanikAvukatiButon; // Kendi diyalogunu başlatan buton
     public Button sanikAvukatiDevamEtButon;
 
+    // --- SES İÇİN EKLENEN KISIM ---
+    public AudioSource sanikAvukatiAudioSource; // Sanık Avukatı'nın seslerini çalacak AudioSource
+    // --- SES İÇİN EKLENEN KISIM SONU ---
 
     public float harfHiz = 0.05f;
 
@@ -29,7 +32,6 @@ public class SanıkAvukatıKonusma : MonoBehaviour
     private Coroutine mevcutMetinAnimasyonu;
     // Hangi karakterin animasyonunun o an aktif olduğunu tutmak için
     private KarakterKonusmaAnimasyonu currentSpeakerAnimationControl = null;
-
 
     public SanikveHakimKonusma sanikveHakimKonusma;
     public SavciKonusma savciKonusma;
@@ -48,10 +50,11 @@ public class SanıkAvukatıKonusma : MonoBehaviour
 
         sanikAvukatiDevamEtButon.gameObject.SetActive(false); // Devam et butonunu başlangıçta kapat
 
-        // Diğer butonların başlangıç etkileşimini ayarla (genellikle ButonlariAc çağrılır)
-        // Eğer bu script'in Start'ında tüm butonların interactable = true olmasını istiyorsanız
-        // ButonlariAc() metodunu çağırın. Şu anki kodunuzda bu yoktu, bu yüzden eklemedim.
-        // Ancak bu butonların durumunu sadece KonusmayiBasla/Bitir yönetiyorsa sorun yok.
+        // Diyalog metinleri kontrolü
+        if (sanikAvukatiDiyalogMetinleri == null || sanikAvukatiDiyalogMetinleri.Count == 0)
+        {
+            Debug.LogError("Sanık Avukatı Diyalog Metinleri Inspector'da atanmamış veya boş!");
+        }
     }
 
     void KonusmayiBaslat()
@@ -68,6 +71,13 @@ public class SanıkAvukatıKonusma : MonoBehaviour
             currentSpeakerAnimationControl.KonusmayiBitir();
             currentSpeakerAnimationControl = null;
         }
+
+        // --- SES İÇİN EKLENEN KISIM: Konuşma başladığında önceki sesi durdur ---
+        if (sanikAvukatiAudioSource != null && sanikAvukatiAudioSource.isPlaying)
+        {
+            sanikAvukatiAudioSource.Stop();
+        }
+        // --- SES İÇİN EKLENEN KISIM SONU ---
 
         sanikAvukatiKonusmaPanel.SetActive(true); // Paneli aktif et
 
@@ -94,10 +104,17 @@ public class SanıkAvukatıKonusma : MonoBehaviour
                 sanikAvukatiAnimationControl.KonusmayiBitir();
             }
 
+            // --- SES İÇİN EKLENEN KISIM: Hızlı tıklamada ses hala çalıyorsa durdur ---
+            if (sanikAvukatiAudioSource != null && sanikAvukatiAudioSource.isPlaying)
+            {
+                sanikAvukatiAudioSource.Stop();
+            }
+            // --- SES İÇİN EKLENEN KISIM SONU ---
+
             // Butonları tekrar aktif et (metin yazma tamamlandı)
             sanikAvukatiDevamEtButon.gameObject.SetActive(true);
             sanikAvukatiDevamEtButon.interactable = true;
-            return;
+            return; // Metin tamamlandığı için sonraki adıma geçmeden çık
         }
 
         mevcutMetinIndex++;
@@ -126,6 +143,13 @@ public class SanıkAvukatıKonusma : MonoBehaviour
             currentSpeakerAnimationControl = null;
         }
 
+        // --- SES İÇİN EKLENEN KISIM: Yeni konuşma başladığında önceki sesi durdur ---
+        if (sanikAvukatiAudioSource != null && sanikAvukatiAudioSource.isPlaying)
+        {
+            sanikAvukatiAudioSource.Stop();
+        }
+        // --- SES İÇİN EKLENEN KISIM SONU ---
+
         sanikAvukatiDevamEtButon.gameObject.SetActive(false); // Metine Başladığımızda devam et butonuna tıklayamamayı sağladık.
 
         if (mevcutMetinIndex < sanikAvukatiDiyalogMetinleri.Count)
@@ -141,6 +165,19 @@ public class SanıkAvukatıKonusma : MonoBehaviour
                 sanikAvukatiAnimationControl.KonusmayaBasla();
                 currentSpeakerAnimationControl = sanikAvukatiAnimationControl; // Aktif konuşan yap
             }
+
+            // --- SES İÇİN EKLENEN KISIM: İlgili ses dosyasını çal ---
+            if (sanikAvukatiAudioSource != null && mevcutKonusma.sesDosyasi != null)
+            {
+                sanikAvukatiAudioSource.clip = mevcutKonusma.sesDosyasi;
+                sanikAvukatiAudioSource.Play();
+            }
+            else if (mevcutKonusma.sesDosyasi == null)
+            {
+                Debug.LogWarning($"Sanık Avukatı diyaloğu için ses dosyası atanmamış: Index {mevcutMetinIndex}");
+            }
+            // --- SES İÇİN EKLENEN KISIM SONU ---
+
             // MetniHarfHarfGoster'e devam butonu parametresini ekledik
             mevcutMetinAnimasyonu = StartCoroutine(MetniHarfHarfGoster(sanikAvukatiMetinText, mevcutKonusma.metin, sanikAvukatiDevamEtButon));
         }
@@ -167,6 +204,14 @@ public class SanıkAvukatıKonusma : MonoBehaviour
             currentSpeakerAnimationControl.KonusmayiBitir();
         }
 
+        // --- SES İÇİN EKLENEN KISIM: Metin animasyonu bittiğinde sesi durdur ---
+        // Eğer ses hala çalıyorsa (yani metinden daha uzunsa), durdur.
+        if (sanikAvukatiAudioSource != null && sanikAvukatiAudioSource.isPlaying)
+        {
+            sanikAvukatiAudioSource.Stop();
+        }
+        // --- SES İÇİN EKLENEN KISIM SONU ---
+
         devamButonu.gameObject.SetActive(true); // Metin tamamlandıktan sonra devam et butonu aktif
         devamButonu.interactable = true;
     }
@@ -179,6 +224,13 @@ public class SanıkAvukatıKonusma : MonoBehaviour
             currentSpeakerAnimationControl.KonusmayiBitir();
             currentSpeakerAnimationControl = null;
         }
+
+        // --- SES İÇİN EKLENEN KISIM: Diyalog bittiğinde sesi durdur ---
+        if (sanikAvukatiAudioSource != null && sanikAvukatiAudioSource.isPlaying)
+        {
+            sanikAvukatiAudioSource.Stop();
+        }
+        // --- SES İÇİN EKLENEN KISIM SONU ---
 
         sanikAvukatiKonusmaPanel.SetActive(false); // Paneli kapat
         sanikAvukatiDevamEtButon.gameObject.SetActive(false); // Devam et butonunu kapat

@@ -15,3 +15,4 @@ MonoBehaviour:
   metin: "Tan\u0131k Ebru G\xFCr, l\xFCtfen kim oldu\u011Funuzu tan\u0131t\u0131n."
   konusmaciAdi: Hakim
   konusmaciPortresi: {fileID: 0}
+  sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

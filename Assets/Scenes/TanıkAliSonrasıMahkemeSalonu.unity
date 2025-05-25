@@ -1352,7 +1352,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1ae3e5538e039cc43ba32a58cbe0e6b0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c4eb706eb253504bb76538336ade402, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6676,6 +6676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 580699214}
   - component: {fileID: 580699215}
+  - component: {fileID: 580699216}
   m_Layer: 0
   m_Name: "Tan\u0131kveHakimKonusmaYon."
   m_TagString: Untagged
@@ -6731,6 +6732,103 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e8356cfd8d541d941aaf0498e5d43141, type: 2}
   savciKonusma: {fileID: 450812463}
   "san\u0131kAvukat\u0131Konusma": {fileID: 2112984134}
+  diyalogAudioSource: {fileID: 580699216}
+--- !u!82 &580699216
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580699213}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &583282265
 GameObject:
   m_ObjectHideFlags: 0
@@ -7715,6 +7813,7 @@ MonoBehaviour:
   magdurDevamEtButon: {fileID: 957612256}
   magdurKapatButon: {fileID: 397223830}
   magdurButon: {fileID: 94493829}
+  diyalogAudioSource: {fileID: 0}
   harfHiz: 0.05
   magdurDiyalogMetinleri:
   - {fileID: 11400000, guid: 906553b09abac6e42b8905dd0c9fc8d5, type: 2}
@@ -19650,6 +19749,7 @@ MonoBehaviour:
   magdurAvukatiKapatButon: {fileID: 126172943}
   magdurAvukatiButon: {fileID: 1027215985}
   magdurAvukatiDevamEtButon: {fileID: 783402080}
+  magdurAvukatiAudioSource: {fileID: 0}
   harfHiz: 0.05
   magdurAvukatiDiyalogMetinleri:
   - {fileID: 11400000, guid: 35f678bd3207fbe45b9544e0c08661b7, type: 2}
@@ -23642,6 +23742,7 @@ MonoBehaviour:
   sanikAvukatiKapatButon: {fileID: 165727480}
   sanikAvukatiButon: {fileID: 1817718404}
   sanikAvukatiDevamEtButon: {fileID: 1965083198}
+  sanikAvukatiAudioSource: {fileID: 0}
   harfHiz: 0.05
   sanikAvukatiDiyalogMetinleri:
   - {fileID: 11400000, guid: 0e6cec32bc32166479778f23b1725ba5, type: 2}

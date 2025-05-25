@@ -15,3 +15,4 @@ MonoBehaviour:
   metin: "San\u0131k ve ma\u011Fdur hakk\u0131nda g\xF6zlemlerinizi payla\u015F\u0131n.\n\n"
   konusmaciAdi: Hakim
   konusmaciPortresi: {fileID: 0}
+  sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

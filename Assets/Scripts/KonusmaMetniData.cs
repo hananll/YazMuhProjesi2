@@ -6,5 +6,6 @@ public class KonusmaMetniData : ScriptableObject
     [TextArea(3, 10)] 
     public string metin;
     public string konusmaciAdi;
-    public Sprite konusmaciPortresi; 
+    public Sprite konusmaciPortresi;
+    public AudioClip sesDosyasi;
 }

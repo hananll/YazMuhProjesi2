@@ -17,3 +17,4 @@ MonoBehaviour:
     Korktu\u011Fu \u015Fey bo\u015Funa de\u011Filmi\u015F, g\xF6r\xFCyoruz."
   konusmaciAdi: "Tan\u0131k"
   konusmaciPortresi: {fileID: 0}
+  sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

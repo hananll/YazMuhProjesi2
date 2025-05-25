@@ -18,5 +18,6 @@ MonoBehaviour:
     T\xFCrk Ceza Kanunu 86/2 ve 86/3-a uyar\u0131nca san\u0131\u011F\u0131n 3 y\u0131l
     6 ay hapis cezas\u0131yla cezaland\u0131r\u0131lmas\u0131n\u0131 kamu ad\u0131na
     talep ederiz."
-  konusmaciAdi: "Cumhuriyet Savc\u0131s\u0131"
+  konusmaciAdi: "Cumhuriyet Savc\u0131s\u0131 An\u0131l Han Ayd\u0131n:"
   konusmaciPortresi: {fileID: 0}
+  sesDosyasi: {fileID: 0}

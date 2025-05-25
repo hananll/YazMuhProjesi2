@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Globalization;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement; // SceneManager hala burada, ama direkt kullanılmayacak
 
 public class KararGirisPaneliYoneticisi : MonoBehaviour
 {
@@ -11,9 +11,8 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
     public GameObject kararGirisPaneliObject;
 
     [Header("Giriş Alanları")]
-    // public TMP_InputField hapisSuresiInputField; // ESKİSİ - KALDIRILDI VEYA YORUMA ALINDI
-    public TMP_InputField hapisYilInputField;    // YENİ - Yıl için
-    public TMP_InputField hapisAyInputField;     // YENİ - Ay için
+    public TMP_InputField hapisYilInputField;
+    public TMP_InputField hapisAyInputField;
     public TMP_InputField paraCezasiInputField;
 
     [Header("Butonlar")]
@@ -24,6 +23,8 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
     [Header("Bağlantılı Yöneticiler")]
     public ArkaPlanYonetimi arkaPlanYoneticisi;
     public CanvasGroup digerAnaUIArayuzuCanvasGroup;
+    [Tooltip("Sahnedeki TokmakSistemiYoneticisi scriptine sahip GameObject (örn: GameManager)")]
+    public TokmakSistemiYoneticisi tokmakSistemiYoneticisi; // Tokmak sistemi yöneticisine referans
 
     private int _aktifDava_IdealHapisGun;
     private float _aktifDava_IdealParaCezasi;
@@ -50,12 +51,33 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
 
         if (digerAnaUIArayuzuCanvasGroup == null) Debug.LogWarning("UYARI: KararGirisPaneliYoneticisi - Diğer Ana UI CanvasGroup ATANMAMIŞ.");
 
-        // Listener'lar
+        // Tokmak Sistemi Yöneticisi'ni bul (eğer Inspector'dan atanmadıysa)
+        if (tokmakSistemiYoneticisi == null)
+        {
+            tokmakSistemiYoneticisi = FindObjectOfType<TokmakSistemiYoneticisi>();
+            if (tokmakSistemiYoneticisi == null)
+            {
+                Debug.LogError("Sahne'de 'TokmakSistemiYoneticisi' bulunamadı! Lütfen KararGirisPaneliYoneticisi'ne atayın veya doğru nesneye ekleyin.");
+            }
+        }
+
+        if (kararGirisPaneliObject != null) kararGirisPaneliObject.SetActive(false);
+    }
+
+    void OnEnable()
+    {
+        // Listener'lar OnEnable'da eklenir
         if (hukumVerButonu != null) hukumVerButonu.onClick.AddListener(HukmuOnayla);
         if (beraatButonu != null) beraatButonu.onClick.AddListener(BeraatKarariVerildi);
         if (panelKapatButonu != null) panelKapatButonu.onClick.AddListener(KararPaneliniKapat);
+    }
 
-        if (kararGirisPaneliObject != null) kararGirisPaneliObject.SetActive(false);
+    void OnDisable()
+    {
+        // Listener'lar OnDisable'da kaldırılır
+        if (hukumVerButonu != null) hukumVerButonu.onClick.RemoveListener(HukmuOnayla);
+        if (beraatButonu != null) beraatButonu.onClick.RemoveListener(BeraatKarariVerildi);
+        if (panelKapatButonu != null) panelKapatButonu.onClick.RemoveListener(KararPaneliniKapat);
     }
 
     public void KararPaneliniGoster(int idealHapisGun, float idealPara, bool idealBeraat)
@@ -73,8 +95,6 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
         if (paraCezasiInputField != null) paraCezasiInputField.text = "";
 
         ArkaPlanVeDigerUIAyarla(true);
-
-        // if (hapisYilInputField != null && hapisYilInputField.IsInteractable()) hapisYilInputField.Select();
     }
 
     public void KararPaneliniKapat()
@@ -82,7 +102,6 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
         if (kararGirisPaneliObject == null) return;
         kararGirisPaneliObject.SetActive(false);
         ArkaPlanVeDigerUIAyarla(false);
-        
     }
 
     void HukmuOnayla()
@@ -93,17 +112,15 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
             return;
         }
 
-        // Yıl ve Ay girdilerini al
         string hapisYilYazisi = hapisYilInputField.text;
         string hapisAyYazisi = hapisAyInputField.text;
         string paraCezasiYazisi = paraCezasiInputField.text;
 
         int girilenYil = 0;
         int girilenAy = 0;
-        int toplamHapisGunu = 0; // Oyuncunun girdiği toplam gün
+        int toplamHapisGunu = 0;
         float paraCezasiMiktari = 0f;
 
-        // Yılı parse et
         if (!string.IsNullOrEmpty(hapisYilYazisi))
         {
             if (int.TryParse(hapisYilYazisi, out girilenYil))
@@ -117,14 +134,11 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
             }
         }
 
-        // Ayı parse et
         if (!string.IsNullOrEmpty(hapisAyYazisi))
         {
             if (int.TryParse(hapisAyYazisi, out girilenAy))
             {
                 if (girilenAy < 0) girilenAy = 0;
-                // Opsiyonel: Ay 11'den büyükse yıla ekleyip ay'ı mod 12 yapabilirsiniz. Şimdilik basit tutalım.
-                // if (girilenAy >= 12) { girilenYil += girilenAy / 12; girilenAy %= 12; }
             }
             else
             {
@@ -133,11 +147,18 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
             }
         }
 
-        // Toplam hapis gününü hesapla
         toplamHapisGunu = (girilenYil * BIR_YIL_GUN_SAYISI) + (girilenAy * BIR_AY_GUN_SAYISI);
 
-        // Para cezasını parse et
-        if (!string.IsNullOrEmpty(paraCezasiYazisi)) { /* ... (öncekiyle aynı para cezası parse etme logiği) ... */ string duzeltilmisParaYazisi = paraCezasiYazisi.Replace(',', '.'); if (!float.TryParse(duzeltilmisParaYazisi, NumberStyles.Any, CultureInfo.InvariantCulture, out paraCezasiMiktari)) { paraCezasiMiktari = 0f; Debug.LogWarning("Geçersiz para cezası formatı: " + paraCezasiYazisi); } if (paraCezasiMiktari < 0) paraCezasiMiktari = 0f; }
+        if (!string.IsNullOrEmpty(paraCezasiYazisi))
+        {
+            string duzeltilmisParaYazisi = paraCezasiYazisi.Replace(',', '.');
+            if (!float.TryParse(duzeltilmisParaYazisi, NumberStyles.Any, CultureInfo.InvariantCulture, out paraCezasiMiktari))
+            {
+                paraCezasiMiktari = 0f;
+                Debug.LogWarning("Geçersiz para cezası formatı: " + paraCezasiYazisi);
+            }
+            if (paraCezasiMiktari < 0) paraCezasiMiktari = 0f;
+        }
 
         Debug.Log("===== HÜKÜM (CEZALI) ONAYLANDI =====");
         Debug.Log($"Girilen Hapis: {girilenYil} Yıl, {girilenAy} Ay (Toplam {toplamHapisGunu} gün)");
@@ -147,7 +168,7 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
         if (BarYoneticisi.Ornek != null)
         {
             BarYoneticisi.Ornek.NihaiKararaGoreBarlariGuncelle(
-                toplamHapisGunu, // Oyuncunun verdiği toplam gün
+                toplamHapisGunu,
                 paraCezasiMiktari,
                 false, // beraat değil
                 _aktifDava_IdealHapisGun,
@@ -158,8 +179,22 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
         else { Debug.LogError("HATA: BarYoneticisi.Ornek bulunamadı, barlar güncellenemedi! (Hüküm Onayla)"); }
 
         KararPaneliniKapat();
-        SceneManager.LoadScene(1);
 
+        // --- SAHNE GEÇİŞİ VE SES ÇALMA BURADA BAŞLIYOR ---
+        if (tokmakSistemiYoneticisi != null)
+        {
+            tokmakSistemiYoneticisi.PlayTokmakSound(); // Tokmak sesi
+            tokmakSistemiYoneticisi.SahneyiGecikmeliYukle(
+                "HakiminOdasi", // Hedef sahne
+                tokmakSistemiYoneticisi.gecisTokmakSoundClip, // Geçiş sesi
+                tokmakSistemiYoneticisi.sahneGecisGecikmesi // Gecikme süresi
+            );
+        }
+        else
+        {
+            Debug.LogWarning("TokmakSistemiYoneticisi atanmamış, sahne direkt yükleniyor.");
+            SceneManager.LoadScene("HakiminOdasi"); // Fallback
+        }
     }
 
     void BeraatKarariVerildi()
@@ -178,8 +213,22 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
         else { Debug.LogError("HATA: BarYoneticisi.Ornek bulunamadı, barlar güncellenemedi! (Beraat)"); }
 
         KararPaneliniKapat();
-        SceneManager.LoadScene(1);
 
+        // --- SAHNE GEÇİŞİ VE SES ÇALMA BURADA BAŞLIYOR ---
+        if (tokmakSistemiYoneticisi != null)
+        {
+            tokmakSistemiYoneticisi.PlayTokmakSound(); // Tokmak sesi
+            tokmakSistemiYoneticisi.SahneyiGecikmeliYukle(
+                "HakiminOdasi", // Hedef sahne
+                tokmakSistemiYoneticisi.gecisTokmakSoundClip, // Geçiş sesi
+                tokmakSistemiYoneticisi.sahneGecisGecikmesi // Gecikme süresi
+            );
+        }
+        else
+        {
+            Debug.LogWarning("TokmakSistemiYoneticisi atanmamış, sahne direkt yükleniyor.");
+            SceneManager.LoadScene("HakiminOdasi"); // Fallback
+        }
     }
 
     void ArkaPlanVeDigerUIAyarla(bool panelAcikMi)
