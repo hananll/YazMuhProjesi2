@@ -1120,6 +1120,7 @@ MonoBehaviour:
   arkaPlanYoneticisi: {fileID: 2059591412}
   digerAnaUIArayuzuCanvasGroup: {fileID: 2110226480}
   tokmakSistemiYoneticisi: {fileID: 0}
+  chatManager: {fileID: 0}
 --- !u!1 &94493825
 GameObject:
   m_ObjectHideFlags: 0
@@ -8749,13 +8750,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2055594884}
     m_Modifications:
+    - target: {fileID: 159707774830461317, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 117.6604
+      objectReference: {fileID: 0}
+    - target: {fileID: 159707774830461317, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -47.635185
+      objectReference: {fileID: 0}
     - target: {fileID: 1933046594869244224, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
       propertyPath: m_Name
       value: "DavaDosyas\u0131AnaPanel"
       objectReference: {fileID: 0}
+    - target: {fileID: 1933046594869244224, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2583152951054924402, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132672077295747022, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c070a6d29dc29bc4f89627b17a35deb7, type: 3}
+    - target: {fileID: 4436404189084995433, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 183.3039
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436404189084995433, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.4087
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436404189084995433, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.7289
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436404189084995433, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -58.423206
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640198177877440721, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669935736507349123, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c070a6d29dc29bc4f89627b17a35deb7, type: 3}
+    - target: {fileID: 5850416824558381586, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7000564603468993025, guid: 3218ac2bbf8e3d348b4cbda12862bc66, type: 3}
       propertyPath: m_Pivot.x
@@ -13553,7 +13598,7 @@ MonoBehaviour:
   kararGirisPaneli: {fileID: 59397383}
   barYoneticisi: {fileID: 1261263642}
   aktifDava: {fileID: 11400000, guid: 94ef85d6c35dcc842894a613ce977eff, type: 2}
-  sahneGecisGecikmesi: 1.5
+  chatManager: {fileID: 0}
 --- !u!1 &1685221192
 GameObject:
   m_ObjectHideFlags: 0
@@ -14387,7 +14432,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 534411d91247f664f91bb123a906a52f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c070a6d29dc29bc4f89627b17a35deb7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

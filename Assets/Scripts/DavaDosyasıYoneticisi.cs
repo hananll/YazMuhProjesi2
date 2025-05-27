@@ -14,11 +14,9 @@ public class DavaDosyasiYoneticisi : MonoBehaviour
     public Button oncekiSayfaButon;
     private int aktifSayfaIndex = 0;
 
-    // --- SES ÝÇÝN EKLENEN KISIM ---
     [Header("Ses Ayarlarý")]
-    public AudioSource sayfaCevirmeAudioSource; // Sayfa çevirme sesini çalacak AudioSource
-    public AudioClip sayfaCevirmeSoundClip;     // Sayfa çevirme ses dosyanýz
-    // --- SES ÝÇÝN EKLENEN KISIM SONU ---
+    public AudioSource sayfaCevirmeAudioSource; 
+    public AudioClip sayfaCevirmeSoundClip;    
 
     [Header("Diðer Sistemlerle Entegrasyon")]
     public ArkaPlanYonetimi arkaPlanYoneticisi;
@@ -26,32 +24,31 @@ public class DavaDosyasiYoneticisi : MonoBehaviour
 
     void Start()
     {
-        // Butonlarýn týklama olaylarýný baðla
+        // Butonlarýn týklama olaylarýný baðladým
         if (davaDosyasiButon != null)
             davaDosyasiButon.onClick.AddListener(DavaDosyasiPaneliAc);
 
         if (davaDosyasiKapatButon != null)
             davaDosyasiKapatButon.onClick.AddListener(DavaDosyasiPaneliKapat);
 
-        // Sonraki sayfa butonuna hem sayfa çevirme hem de ses çalma olaylarýný baðla
+        // Sonraki sayfa butonuna hem sayfa çevirme hem de ses çalma olaylarýný baðladým.
         if (sonrakiSayfaButon != null)
         {
             sonrakiSayfaButon.onClick.AddListener(SonrakiSayfa);
-            sonrakiSayfaButon.onClick.AddListener(PlayPageTurnSound); // SES ÝÇÝN EKLENDÝ
+            sonrakiSayfaButon.onClick.AddListener(PlayPageTurnSound); 
         }
 
-        // Önceki sayfa butonuna hem sayfa çevirme hem de ses çalma olaylarýný baðla
+        // Önceki sayfa butonuna hem sayfa çevirme hem de ses çalma olaylarýný baðladým.
         if (oncekiSayfaButon != null)
         {
             oncekiSayfaButon.onClick.AddListener(OncekiSayfa);
-            oncekiSayfaButon.onClick.AddListener(PlayPageTurnSound); // SES ÝÇÝN EKLENDÝ
+            oncekiSayfaButon.onClick.AddListener(PlayPageTurnSound);
         }
 
-        // Paneli baþlangýçta gizle
+        // Eðer tasarým ekranýnda panellerden birini açýk unutursam kapalý olmasý için burda iþimi garantiye aldým.
         if (davaDosyasiAnaPanel != null)
             davaDosyasiAnaPanel.SetActive(false);
 
-        // Sayfa navigasyon butonlarýnýn baþlangýç durumunu ayarla
         if (davaDosyasiSayfalari == null || davaDosyasiSayfalari.Length == 0)
         {
             if (sonrakiSayfaButon != null) sonrakiSayfaButon.interactable = false;
@@ -61,9 +58,9 @@ public class DavaDosyasiYoneticisi : MonoBehaviour
         {
             SayfayiGoster(0); // Ýlk sayfayý göster
             if (oncekiSayfaButon != null)
-                oncekiSayfaButon.interactable = false; // Ýlk sayfadayken önceki buton devre dýþý
+                oncekiSayfaButon.interactable = false; // Ýlk sayfadayken önceki buton devre dýþý çünkü ilk sayfadayýz.
             if (sonrakiSayfaButon != null)
-                sonrakiSayfaButon.interactable = davaDosyasiSayfalari.Length > 1; // Tek sayfa varsa sonraki de devre dýþý
+                sonrakiSayfaButon.interactable = davaDosyasiSayfalari.Length > 1; // Tek sayfa varsa sonraki de devre dýþý þeklinde yaptým.
         }
     }
 
@@ -72,19 +69,18 @@ public class DavaDosyasiYoneticisi : MonoBehaviour
     {
         if (davaDosyasiAnaPanel == null)
         {
-            Debug.LogWarning("Dava Dosyasý Ana Paneli atanmamýþ!");
+            Debug.LogWarning("Dava Dosyasý Ana Paneli atanmamýþ!"); // Kontrol için debug ekledim.
             return;
         }
 
         davaDosyasiAnaPanel.SetActive(true);
 
-        // Arka plan yönetimi entegrasyonu
         if (arkaPlanYoneticisi != null)
         {
             arkaPlanYoneticisi.BlurluArkaPlaniAyarla(true);
         }
 
-        // Arka plandaki UI etkileþimini devre dýþý býrak
+        // Panel açýldýðýnda arka plandaki olan avukat button vs bunlarýn hepsine týklanamaz hale getirdim.
         if (arkaPlanCanvasGroup != null)
         {
             arkaPlanCanvasGroup.interactable = false;
@@ -92,24 +88,21 @@ public class DavaDosyasiYoneticisi : MonoBehaviour
         }
     }
 
-    // Dava dosyasý panelini kapatýr ve arka planý eski haline getirir
     void DavaDosyasiPaneliKapat()
     {
         if (davaDosyasiAnaPanel == null)
         {
-            Debug.LogWarning("Dava Dosyasý Ana Paneli atanmamýþ!");
+            Debug.LogWarning("Dava Dosyasý Ana Paneli atanmamýþ!");  // Kontrol için yine debug satýrý ekledim.
             return;
         }
 
         davaDosyasiAnaPanel.SetActive(false);
 
-        // Arka plan yönetimi entegrasyonu
         if (arkaPlanYoneticisi != null)
         {
             arkaPlanYoneticisi.BlurluArkaPlaniAyarla(false);
         }
 
-        // Arka plandaki UI etkileþimini tekrar aktif et
         if (arkaPlanCanvasGroup != null)
         {
             arkaPlanCanvasGroup.interactable = true;
@@ -117,7 +110,6 @@ public class DavaDosyasiYoneticisi : MonoBehaviour
         }
     }
 
-    // Sonraki sayfaya geçiþi saðlar
     public void SonrakiSayfa()
     {
         if (davaDosyasiSayfalari == null || davaDosyasiSayfalari.Length == 0) return;
@@ -127,16 +119,14 @@ public class DavaDosyasiYoneticisi : MonoBehaviour
             aktifSayfaIndex++;
             SayfayiGoster(aktifSayfaIndex);
 
-            // Butonlarýn etkileþim durumunu güncelle
             if (oncekiSayfaButon != null)
                 oncekiSayfaButon.interactable = true;
 
             if (sonrakiSayfaButon != null && aktifSayfaIndex == davaDosyasiSayfalari.Length - 1)
-                sonrakiSayfaButon.interactable = false; // Son sayfadaysa sonraki buton devre dýþý
+                sonrakiSayfaButon.interactable = false;
         }
     }
 
-    // Önceki sayfaya geçiþi saðlar
     public void OncekiSayfa()
     {
         if (davaDosyasiSayfalari == null || davaDosyasiSayfalari.Length == 0) return;
@@ -146,16 +136,14 @@ public class DavaDosyasiYoneticisi : MonoBehaviour
             aktifSayfaIndex--;
             SayfayiGoster(aktifSayfaIndex);
 
-            // Butonlarýn etkileþim durumunu güncelle
             if (sonrakiSayfaButon != null)
                 sonrakiSayfaButon.interactable = true;
 
             if (oncekiSayfaButon != null && aktifSayfaIndex == 0)
-                oncekiSayfaButon.interactable = false; // Ýlk sayfadaysa önceki buton devre dýþý
+                oncekiSayfaButon.interactable = false; 
         }
     }
 
-    // Belirtilen indeksteki sayfayý gösterir ve diðerlerini gizler
     void SayfayiGoster(int sayfaIndex)
     {
         if (davaDosyasiSayfalari == null || davaDosyasiSayfalari.Length == 0)
@@ -164,7 +152,6 @@ public class DavaDosyasiYoneticisi : MonoBehaviour
             return;
         }
 
-        // Tüm sayfalarý gizle
         for (int i = 0; i < davaDosyasiSayfalari.Length; i++)
         {
             if (davaDosyasiSayfalari[i] != null)
@@ -173,19 +160,14 @@ public class DavaDosyasiYoneticisi : MonoBehaviour
             }
         }
 
-        // Sadece istenen sayfayý aktif et
         if (sayfaIndex >= 0 && sayfaIndex < davaDosyasiSayfalari.Length && davaDosyasiSayfalari[sayfaIndex] != null)
         {
             davaDosyasiSayfalari[sayfaIndex].SetActive(true);
         }
-        else
-        {
-            Debug.LogError($"Geçersiz sayfa indeksi: {sayfaIndex}. Toplam sayfa sayýsý: {davaDosyasiSayfalari.Length}");
-        }
+        
     }
 
-    // --- SES ÝÇÝN EKLENEN KISIM ---
-    // Sayfa çevirme sesini çalan fonksiyon
+    
     private void PlayPageTurnSound()
     {
         if (sayfaCevirmeAudioSource != null && sayfaCevirmeSoundClip != null)
@@ -197,5 +179,4 @@ public class DavaDosyasiYoneticisi : MonoBehaviour
             Debug.LogWarning("Sayfa çevirme AudioSource veya AudioClip atanmamýþ! Lütfen Inspector'dan atayýn.");
         }
     }
-    // --- SES ÝÇÝN EKLENEN KISIM SONU ---
 }

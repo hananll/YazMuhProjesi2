@@ -14,11 +14,10 @@ public class KanunKitabiYoneticisi : MonoBehaviour
     public Button kanunOncekiSayfaButon;
     private int aktifSayfaIndex = 0;
 
-    // --- SES İÇİN EKLENEN KISIM ---
     [Header("Ses Ayarları")]
-    public AudioSource sayfaCevirmeAudioSource; // Sayfa çevirme sesini çalacak AudioSource
-    public AudioClip sayfaCevirmeSoundClip;     // Sayfa çevirme ses dosyanız
-    // --- SES İÇİN EKLENEN KISIM SONU ---
+    public AudioSource sayfaCevirmeAudioSource;
+    public AudioClip sayfaCevirmeSoundClip;    
+  
 
     [Header("Diğer Sistemlerle Entegrasyon")]
     public ArkaPlanYonetimi arkaPlanYoneticisi;
@@ -26,32 +25,27 @@ public class KanunKitabiYoneticisi : MonoBehaviour
 
     void Start()
     {
-        // Butonların tıklama olaylarını bağla
-        if (kanunKitabiButon != null)
+        
             kanunKitabiButon.onClick.AddListener(KanunKitabiPaneliAc);
 
-        if (kanunKitabiKapatButon != null)
             kanunKitabiKapatButon.onClick.AddListener(KanunKitabiPaneliKapat);
 
-        // Sonraki sayfa butonuna hem sayfa çevirme hem de ses çalma olaylarını bağla
-        if (kanunSonrakiSayfaButon != null)
-        {
+            // Sonraki sayfa butonuna hem sayfa çevirme hem de ses çalma olaylarını bağladım
+        
             kanunSonrakiSayfaButon.onClick.AddListener(SonrakiSayfa);
-            kanunSonrakiSayfaButon.onClick.AddListener(PlayPageTurnSound); // SES İÇİN EKLENDİ
-        }
-
-        // Önceki sayfa butonuna hem sayfa çevirme hem de ses çalma olaylarını bağla
-        if (kanunOncekiSayfaButon != null)
-        {
+            kanunSonrakiSayfaButon.onClick.AddListener(PlayPageTurnSound); 
+        
+            // Önceki sayfa butonuna hem sayfa çevirme hem de ses çalma olaylarını bağladım
+        
             kanunOncekiSayfaButon.onClick.AddListener(OncekiSayfa);
-            kanunOncekiSayfaButon.onClick.AddListener(PlayPageTurnSound); // SES İÇİN EKLENDİ
-        }
+            kanunOncekiSayfaButon.onClick.AddListener(PlayPageTurnSound);
+        
 
-        // Paneli başlangıçta gizle
+        // Paneli başlangıçta gizledim
         if (kanunKitabiPanel != null)
             kanunKitabiPanel.SetActive(false);
 
-        // Sayfa navigasyon butonlarının başlangıç durumunu ayarla
+        // Sayfa navigasyon butonlarının başlangıç durumunu ayarladım
         if (kanunKitabiSayfalari == null || kanunKitabiSayfalari.Length == 0)
         {
             if (kanunSonrakiSayfaButon != null) kanunSonrakiSayfaButon.interactable = false;
@@ -61,30 +55,30 @@ public class KanunKitabiYoneticisi : MonoBehaviour
         {
             SayfayiGoster(0); // İlk sayfayı göster
             if (kanunOncekiSayfaButon != null)
-                kanunOncekiSayfaButon.interactable = false; // İlk sayfadayken önceki buton devre dışı
+                kanunOncekiSayfaButon.interactable = false; // İlk sayfadayken önceki buton devre dışı bıraktım.
+           
             if (kanunSonrakiSayfaButon != null)
-                kanunSonrakiSayfaButon.interactable = kanunKitabiSayfalari.Length > 1; // Tek sayfa varsa sonraki de devre dışı
+                kanunSonrakiSayfaButon.interactable = kanunKitabiSayfalari.Length > 1; // Tek sayfa varsa sonraki de devre dışı bıraktım.
         }
+           
     }
 
-    // Kanun kitabı panelini açar ve arka planı ayarlar
+    // Bu metot kanun kitabını açar ve arka planın blurlu olarak değişmesini sağlar.
     void KanunKitabiPaneliAc()
     {
         if (kanunKitabiPanel == null)
         {
-            Debug.LogWarning("Kanun Kitabı Paneli atanmamış!");
+            Debug.LogWarning("Kanun Kitabı Paneli atanmamış!"); //Kontrol ekledim,çünkü bazen inspector a atamaları unutuyorum.
             return;
         }
 
         kanunKitabiPanel.SetActive(true);
 
-        // Arka plan yönetimi entegrasyonu
-        if (arkaPlanYoneticisi != null)
-        {
-            arkaPlanYoneticisi.BlurluArkaPlaniAyarla(true);
-        }
+       
+       arkaPlanYoneticisi.BlurluArkaPlaniAyarla(true);
+        
 
-        // Arka plandaki UI etkileşimini devre dışı bırak
+        // Arka plandaki UI etkileşimini devre dışı bıraktım.Oyuncu basmasın diye.
         if (arkaPlanCanvasGroup != null)
         {
             arkaPlanCanvasGroup.interactable = false;
@@ -92,7 +86,7 @@ public class KanunKitabiYoneticisi : MonoBehaviour
         }
     }
 
-    // Kanun kitabı panelini kapatır ve arka planı eski haline getirir
+    
     void KanunKitabiPaneliKapat()
     {
         if (kanunKitabiPanel == null)
@@ -103,13 +97,11 @@ public class KanunKitabiYoneticisi : MonoBehaviour
 
         kanunKitabiPanel.SetActive(false);
 
-        // Arka plan yönetimi entegrasyonu
         if (arkaPlanYoneticisi != null)
         {
             arkaPlanYoneticisi.BlurluArkaPlaniAyarla(false);
         }
 
-        // Arka plandaki UI etkileşimini tekrar aktif et
         if (arkaPlanCanvasGroup != null)
         {
             arkaPlanCanvasGroup.interactable = true;
@@ -117,7 +109,6 @@ public class KanunKitabiYoneticisi : MonoBehaviour
         }
     }
 
-    // Sonraki sayfaya geçişi sağlar
     public void SonrakiSayfa()
     {
         if (kanunKitabiSayfalari == null || kanunKitabiSayfalari.Length == 0) return;
@@ -127,16 +118,14 @@ public class KanunKitabiYoneticisi : MonoBehaviour
             aktifSayfaIndex++;
             SayfayiGoster(aktifSayfaIndex);
 
-            // Butonların etkileşim durumunu güncelle
             if (kanunOncekiSayfaButon != null)
                 kanunOncekiSayfaButon.interactable = true;
 
             if (kanunSonrakiSayfaButon != null && aktifSayfaIndex == kanunKitabiSayfalari.Length - 1)
-                kanunSonrakiSayfaButon.interactable = false; // Son sayfadaysa sonraki buton devre dışı
+                kanunSonrakiSayfaButon.interactable = false; // Son sayfaysa buton etkileşimi false olur.
         }
     }
 
-    // Önceki sayfaya geçişi sağlar
     public void OncekiSayfa()
     {
         if (kanunKitabiSayfalari == null || kanunKitabiSayfalari.Length == 0) return;
@@ -146,16 +135,14 @@ public class KanunKitabiYoneticisi : MonoBehaviour
             aktifSayfaIndex--;
             SayfayiGoster(aktifSayfaIndex);
 
-            // Butonların etkileşim durumunu güncelle
             if (kanunSonrakiSayfaButon != null)
                 kanunSonrakiSayfaButon.interactable = true;
 
             if (kanunOncekiSayfaButon != null && aktifSayfaIndex == 0)
-                kanunOncekiSayfaButon.interactable = false; // İlk sayfadaysa önceki buton devre dışı
+                kanunOncekiSayfaButon.interactable = false; 
         }
     }
 
-    // Belirtilen indeksteki sayfayı gösterir ve diğerlerini gizler
     void SayfayiGoster(int sayfaIndex)
     {
         if (kanunKitabiSayfalari == null || kanunKitabiSayfalari.Length == 0)
@@ -164,7 +151,6 @@ public class KanunKitabiYoneticisi : MonoBehaviour
             return;
         }
 
-        // Tüm sayfaları gizle
         for (int i = 0; i < kanunKitabiSayfalari.Length; i++)
         {
             if (kanunKitabiSayfalari[i] != null)
@@ -173,29 +159,20 @@ public class KanunKitabiYoneticisi : MonoBehaviour
             }
         }
 
-        // Sadece istenen sayfayı aktif et
         if (sayfaIndex >= 0 && sayfaIndex < kanunKitabiSayfalari.Length && kanunKitabiSayfalari[sayfaIndex] != null)
         {
             kanunKitabiSayfalari[sayfaIndex].SetActive(true);
         }
-        else
-        {
-            Debug.LogError($"Geçersiz sayfa indeksi: {sayfaIndex}. Toplam sayfa sayısı: {kanunKitabiSayfalari.Length}");
-        }
+        
     }
 
-    // --- SES İÇİN EKLENEN KISIM ---
-    // Sayfa çevirme sesini çalan fonksiyon
+   
     private void PlayPageTurnSound()
     {
         if (sayfaCevirmeAudioSource != null && sayfaCevirmeSoundClip != null)
         {
             sayfaCevirmeAudioSource.PlayOneShot(sayfaCevirmeSoundClip);
         }
-        else
-        {
-            Debug.LogWarning("Sayfa çevirme AudioSource veya AudioClip atanmamış! Lütfen Inspector'dan atayın.");
-        }
+        
     }
-    // --- SES İÇİN EKLENEN KISIM SONU ---
 }

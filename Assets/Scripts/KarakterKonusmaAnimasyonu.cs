@@ -1,53 +1,47 @@
 using UnityEngine;
-using UnityEngine.UI; // Image bileþeni için
-using System.Collections; // Coroutine için
+using UnityEngine.UI; 
+using System.Collections; // Bunu ekledim çünkü karakterin aðzý bir yerde duruyor.
 
 public class KarakterKonusmaAnimasyonu : MonoBehaviour
 {
-    public Sprite mouthOpenSprite;   // Aðzýn açýk hali resmi
-    public Sprite mouthClosedSprite; // Aðzýn kapalý hali resmi
+    public Sprite mouthOpenSprite;  
+    public Sprite mouthClosedSprite;
 
     private Image mouthImage;
     private Coroutine talkingCoroutine;
 
-    // Aðýzýn açýk/kapalý kalma süresi
+   // Aðzýn açýk/kapalý kalma süresi, Emre eðer beðenmezsen inspectordan ayarlayabilirsin. Bu script i her karakterin child ýn daki gameobject e ekledim.
     public float mouthToggleSpeed = 0.1f;
 
     void Awake()
     {
-        mouthImage = GetComponent<Image>();
+        mouthImage = GetComponent<Image>(); // Ýnspectordan get compenent metodu ile Image bileþeinini alýyorum kodda kullandým çünkü.
         if (mouthImage == null)
         {
-            Debug.LogError(gameObject.name + ": Image bileþeni bulunamadý! KarakterKonusmaAnimasyonu script'ini bir UI Image objesine atayýn.");
             enabled = false;
         }
         if (mouthOpenSprite == null || mouthClosedSprite == null)
         {
-            Debug.LogError(gameObject.name + ": Aðýz açýk/kapalý resimleri Inspector'da atanmadý!");
             enabled = false;
         }
     }
 
     public void KonusmayaBasla()
     {
-        // Eðer zaten konuþma coroutine'i çalýþýyorsa durdur
         if (talkingCoroutine != null)
         {
             StopCoroutine(talkingCoroutine);
         }
-        // Yeni konuþma coroutine'ini baþlat
         talkingCoroutine = StartCoroutine(AnimateMouthDirectly());
     }
 
     public void KonusmayiBitir()
     {
-        // Konuþma coroutine'ini durdur
         if (talkingCoroutine != null)
         {
             StopCoroutine(talkingCoroutine);
             talkingCoroutine = null;
         }
-        // Aðzý kapalý resme getir
         if (mouthImage != null && mouthClosedSprite != null)
         {
             mouthImage.sprite = mouthClosedSprite;
@@ -61,15 +55,15 @@ public class KarakterKonusmaAnimasyonu : MonoBehaviour
         {
             if (mouthImage != null && mouthOpenSprite != null)
             {
-                mouthImage.sprite = mouthOpenSprite; // Aðzý aç
+                mouthImage.sprite = mouthOpenSprite; 
             }
             yield return new WaitForSeconds(mouthToggleSpeed);
 
             if (mouthImage != null && mouthClosedSprite != null)
             {
-                mouthImage.sprite = mouthClosedSprite; // Aðzý kapat
+                mouthImage.sprite = mouthClosedSprite; 
             }
-            yield return new WaitForSeconds(mouthToggleSpeed);
+            yield return new WaitForSeconds(mouthToggleSpeed); // Emre burdaki yield e takýlma metodun parça parça çalýþmasýný saðladým, biraz gecikme daha hoþ durdu burayý elleme.
         }
     }
 }

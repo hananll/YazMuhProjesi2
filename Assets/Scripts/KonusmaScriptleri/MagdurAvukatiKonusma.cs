@@ -4,33 +4,27 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 
-// KonusmaMetniData ScriptableObject'i ayrý bir dosyada tanýmlý olduðu için,
-// bu script içinde tekrar TANIMLANMAMALI.
+
 
 public class MagdurAvukatiKonusma : MonoBehaviour
 {
-    // Maðdur Avukatý'nýn aðýz animasyon kontrol script'ine referans
     public KarakterKonusmaAnimasyonu magdurAvukatiAnimationControl;
 
     public GameObject magdurAvukatiKonusmaPanel;
     public TextMeshProUGUI magdurAvukatiMetinText;
     public TextMeshProUGUI magdurAvukatiAdiText;
     public Button magdurAvukatiKapatButon;
-    public Button magdurAvukatiButon; // Kendi diyalogunu baþlatan buton
+    public Button magdurAvukatiButon;
     public Button magdurAvukatiDevamEtButon;
 
-    // --- SES ÝÇÝN EKLENEN KISIM ---
-    public AudioSource magdurAvukatiAudioSource; // Maðdur Avukatý'nýn seslerini çalacak AudioSource
-    // --- SES ÝÇÝN EKLENEN KISIM SONU ---
+    public AudioSource magdurAvukatiAudioSource; 
 
     public float harfHiz = 0.05f;
 
-    // Diyalog verileri (KonusmaMetniData ScriptableObject'ini kullanýyor)
     public List<KonusmaMetniData> magdurAvukatiDiyalogMetinleri;
 
     private int mevcutMetinIndex = 0;
     private Coroutine mevcutMetinAnimasyonu;
-    // Hangi karakterin animasyonunun o an aktif olduðunu tutmak için
     private KarakterKonusmaAnimasyonu currentSpeakerAnimationControl = null;
 
     public SanikveHakimKonusma sanikveHakimKonusma;
@@ -41,45 +35,37 @@ public class MagdurAvukatiKonusma : MonoBehaviour
 
     void Start()
     {
-        magdurAvukatiKonusmaPanel.SetActive(false); // Paneli baþlangýçta kapat
+        magdurAvukatiKonusmaPanel.SetActive(false); 
 
-        // Buton olaylarýný dinlemeye baþla
         magdurAvukatiButon.onClick.AddListener(KonusmayiBaslat);
         magdurAvukatiKapatButon.onClick.AddListener(KonusmayiBitir);
         magdurAvukatiDevamEtButon.onClick.AddListener(SonrakiMetniGoster);
 
-        magdurAvukatiDevamEtButon.gameObject.SetActive(false); // Devam et butonunu baþlangýçta kapat
+        magdurAvukatiDevamEtButon.gameObject.SetActive(false);
 
-        // Diyalog metinleri kontrolü
-        if (magdurAvukatiDiyalogMetinleri == null || magdurAvukatiDiyalogMetinleri.Count == 0)
-        {
-            Debug.LogError("Maðdur Avukatý Diyalog Metinleri Inspector'da atanmamýþ veya boþ!");
-        }
+      
     }
 
     void KonusmayiBaslat()
     {
         if (magdurAvukatiDiyalogMetinleri == null || magdurAvukatiDiyalogMetinleri.Count == 0)
         {
-            Debug.LogWarning("Maðdur Avukatý diyalog listesi boþ veya atanmamýþ!");
+           
             return;
         }
 
-        // Önceki konuþanýn animasyonunu durdur (eðer varsa)
         if (currentSpeakerAnimationControl != null)
         {
             currentSpeakerAnimationControl.KonusmayiBitir();
             currentSpeakerAnimationControl = null;
         }
 
-        // --- SES ÝÇÝN EKLENEN KISIM: Konuþma baþladýðýnda önceki sesi durdur ---
         if (magdurAvukatiAudioSource != null && magdurAvukatiAudioSource.isPlaying)
         {
             magdurAvukatiAudioSource.Stop();
         }
-        // --- SES ÝÇÝN EKLENEN KISIM SONU ---
 
-        magdurAvukatiKonusmaPanel.SetActive(true); // Paneli aktif et
+        magdurAvukatiKonusmaPanel.SetActive(true); 
         ButonlariKapat();
 
         mevcutMetinIndex = 0;
@@ -88,32 +74,27 @@ public class MagdurAvukatiKonusma : MonoBehaviour
 
     void SonrakiMetniGoster()
     {
-        // Eðer metin hala yazýlýyorsa, yazmayý tamamla
         if (mevcutMetinAnimasyonu != null)
         {
             StopCoroutine(mevcutMetinAnimasyonu);
             mevcutMetinAnimasyonu = null;
 
             KonusmaMetniData currentData = magdurAvukatiDiyalogMetinleri[mevcutMetinIndex];
-            magdurAvukatiMetinText.text = currentData.metin; // Metni anýnda tamamla
+            magdurAvukatiMetinText.text = currentData.metin; 
 
-            // Hýzlý týklamada metin yazýmý tamamlandýðýnda aðzý kapat
             if (currentSpeakerAnimationControl != null)
             {
                 currentSpeakerAnimationControl.KonusmayiBitir();
             }
 
-            // --- SES ÝÇÝN EKLENEN KISIM: Hýzlý týklamada ses hala çalýyorsa durdur ---
             if (magdurAvukatiAudioSource != null && magdurAvukatiAudioSource.isPlaying)
             {
                 magdurAvukatiAudioSource.Stop();
             }
-            // --- SES ÝÇÝN EKLENEN KISIM SONU ---
 
-            // Butonlarý tekrar aktif et (metin yazma tamamlandý)
             magdurAvukatiDevamEtButon.gameObject.SetActive(true);
             magdurAvukatiDevamEtButon.interactable = true;
-            return; // Metin tamamlandýðý için sonraki adýma geçmeden çýk
+            return; 
         }
 
         mevcutMetinIndex++;
@@ -123,65 +104,55 @@ public class MagdurAvukatiKonusma : MonoBehaviour
         }
         else
         {
-            KonusmayiBitir(); // Tüm metinler gösterildiyse konuþmayý bitir.
+            KonusmayiBitir(); 
         }
     }
 
     void MevcutMetniGoster()
     {
-        // Önceki metin animasyonunu durdur
         if (mevcutMetinAnimasyonu != null)
         {
             StopCoroutine(mevcutMetinAnimasyonu);
             mevcutMetinAnimasyonu = null;
         }
-        // Önceki konuþanýn animasyonunu durdur (eðer varsa)
         if (currentSpeakerAnimationControl != null)
         {
             currentSpeakerAnimationControl.KonusmayiBitir();
             currentSpeakerAnimationControl = null;
         }
 
-        // --- SES ÝÇÝN EKLENEN KISIM: Yeni konuþma baþladýðýnda önceki sesi durdur ---
         if (magdurAvukatiAudioSource != null && magdurAvukatiAudioSource.isPlaying)
         {
             magdurAvukatiAudioSource.Stop();
         }
-        // --- SES ÝÇÝN EKLENEN KISIM SONU ---
 
-        magdurAvukatiDevamEtButon.gameObject.SetActive(false); // Metine baþladýðýmýzda devam et butonuna týklayamamayý saðladýk.
+        magdurAvukatiDevamEtButon.gameObject.SetActive(false); 
 
         if (mevcutMetinIndex < magdurAvukatiDiyalogMetinleri.Count)
         {
             KonusmaMetniData mevcutKonusma = magdurAvukatiDiyalogMetinleri[mevcutMetinIndex];
 
-            magdurAvukatiMetinText.text = ""; // Metin alanýný temizle
+            magdurAvukatiMetinText.text = ""; 
             magdurAvukatiAdiText.text = mevcutKonusma.konusmaciAdi;
 
-            // Maðdur Avukatý animasyonunu baþlat
             if (magdurAvukatiAnimationControl != null)
             {
                 magdurAvukatiAnimationControl.KonusmayaBasla();
-                currentSpeakerAnimationControl = magdurAvukatiAnimationControl; // Aktif konuþan yap
+                currentSpeakerAnimationControl = magdurAvukatiAnimationControl;
             }
 
-            // --- SES ÝÇÝN EKLENEN KISIM: Ýlgili ses dosyasýný çal ---
             if (magdurAvukatiAudioSource != null && mevcutKonusma.sesDosyasi != null)
             {
                 magdurAvukatiAudioSource.clip = mevcutKonusma.sesDosyasi;
                 magdurAvukatiAudioSource.Play();
             }
-            else if (mevcutKonusma.sesDosyasi == null)
-            {
-                Debug.LogWarning($"Maðdur Avukatý diyaloðu için ses dosyasý atanmamýþ: Index {mevcutMetinIndex}");
-            }
-            // --- SES ÝÇÝN EKLENEN KISIM SONU ---
+            
 
             mevcutMetinAnimasyonu = StartCoroutine(MetniHarfHarfGoster(magdurAvukatiMetinText, mevcutKonusma.metin, magdurAvukatiDevamEtButon));
         }
         else
         {
-            KonusmayiBitir(); // Tüm metinler gösterildiyse konuþmayý bitir.
+            KonusmayiBitir();
         }
     }
 
@@ -196,50 +167,43 @@ public class MagdurAvukatiKonusma : MonoBehaviour
             yield return new WaitForSeconds(harfHiz);
         }
 
-        // Metin yazýmý tamamlandýðýnda konuþma animasyonunu durdur
         if (currentSpeakerAnimationControl != null)
         {
             currentSpeakerAnimationControl.KonusmayiBitir();
         }
 
-        // --- SES ÝÇÝN EKLENEN KISIM: Metin animasyonu bittiðinde sesi durdur ---
-        // Eðer ses hala çalýyorsa (yani metinden daha uzunsa), durdur.
+       
         if (magdurAvukatiAudioSource != null && magdurAvukatiAudioSource.isPlaying)
         {
             magdurAvukatiAudioSource.Stop();
         }
-        // --- SES ÝÇÝN EKLENEN KISIM SONU ---
 
-        devamButonu.gameObject.SetActive(true); // Metin tamamlandýktan sonra devam et butonu aktif
+        devamButonu.gameObject.SetActive(true);
         devamButonu.interactable = true;
     }
 
     void KonusmayiBitir()
     {
-        // Aktif olan son konuþanýn animasyonunu durdur
         if (currentSpeakerAnimationControl != null)
         {
             currentSpeakerAnimationControl.KonusmayiBitir();
             currentSpeakerAnimationControl = null;
         }
 
-        // --- SES ÝÇÝN EKLENEN KISIM: Diyalog bittiðinde sesi durdur ---
         if (magdurAvukatiAudioSource != null && magdurAvukatiAudioSource.isPlaying)
         {
             magdurAvukatiAudioSource.Stop();
         }
-        // --- SES ÝÇÝN EKLENEN KISIM SONU ---
 
-        magdurAvukatiKonusmaPanel.SetActive(false); // Paneli kapat
-        magdurAvukatiDevamEtButon.gameObject.SetActive(false); // Devam et butonunu kapat
+        magdurAvukatiKonusmaPanel.SetActive(false);
+        magdurAvukatiDevamEtButon.gameObject.SetActive(false); 
 
-        ButonlariAc(); // Tüm butonlarý aç
-        mevcutMetinIndex = 0; // Ýndeksi sýfýrla
+        ButonlariAc(); 
+        mevcutMetinIndex = 0; 
     }
 
     void ButonlariKapat()
     {
-        // Diðer diyalog butonlarýný kapat
         sanikveHakimKonusma.mikrofonButon.interactable = false;
         savciKonusma.savciButon.interactable = false;
         sanýkAvukatýKonusma.sanikAvukatiButon.interactable = false;
@@ -249,10 +213,8 @@ public class MagdurAvukatiKonusma : MonoBehaviour
 
     void ButonlariAc()
     {
-        // Kendi butonunu aç (eðer ButonlariKapat içinde kapatýlmadýysa bu satýr gereksiz olabilir ama güvenli býrakýldý)
         magdurAvukatiButon.interactable = true;
 
-        // Diðer diyalog butonlarýný aç
         sanikveHakimKonusma.mikrofonButon.interactable = true;
         savciKonusma.savciButon.interactable = true;
         sanýkAvukatýKonusma.sanikAvukatiButon.interactable = true;

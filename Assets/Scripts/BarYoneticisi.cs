@@ -1,4 +1,3 @@
-// Script Adý: BarYoneticisi.cs
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,7 +27,7 @@ public class BarYoneticisi : MonoBehaviour
         SetHukukGuvenDegeri(kayitliHukukDegeri);
 
         if (kamuoyuGuvenSlider == null)
-            Debug.LogError("HATA: BarYoneticisi - Kamuoyu Güven Slider'ý ATANMAMIÞ!");
+            Debug.LogError("HATA: BarYoneticisi - Kamuoyu Güven Slider'ý ATANMAMIÞ!"); //Kontrol için debug error ekledim.
         if (hukukGuvenSlider == null)
             Debug.LogError("HATA: BarYoneticisi - Hukuk Güven Slider'ý ATANMAMIÞ!");
 

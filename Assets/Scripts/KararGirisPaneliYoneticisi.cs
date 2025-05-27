@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Globalization;
-using UnityEngine.SceneManagement; // SceneManager hala burada, ama direkt kullanılmayacak
+// using UnityEngine.SceneManagement; // Bu artık direkt kullanılmayacak, yoruma alabiliriz veya silebiliriz
 
 public class KararGirisPaneliYoneticisi : MonoBehaviour
 {
@@ -25,6 +25,11 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
     public CanvasGroup digerAnaUIArayuzuCanvasGroup;
     [Tooltip("Sahnedeki TokmakSistemiYoneticisi scriptine sahip GameObject (örn: GameManager)")]
     public TokmakSistemiYoneticisi tokmakSistemiYoneticisi; // Tokmak sistemi yöneticisine referans
+
+    // YENİ: ChatManager referansı
+    [Header("Chatbox Entegrasyonu")]
+    [Tooltip("Chatbox'ı yöneten ChatManager scriptine referans.")]
+    public ChatManager chatManager;
 
     private int _aktifDava_IdealHapisGun;
     private float _aktifDava_IdealParaCezasi;
@@ -58,6 +63,16 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
             if (tokmakSistemiYoneticisi == null)
             {
                 Debug.LogError("Sahne'de 'TokmakSistemiYoneticisi' bulunamadı! Lütfen KararGirisPaneliYoneticisi'ne atayın veya doğru nesneye ekleyin.");
+            }
+        }
+
+        // YENİ: ChatManager'ı bul (eğer Inspector'dan atanmadıysa)
+        if (chatManager == null)
+        {
+            chatManager = FindObjectOfType<ChatManager>();
+            if (chatManager == null)
+            {
+                Debug.LogError("Sahne'de 'ChatManager' bulunamadı! Lütfen KararGirisPaneliYoneticisi'ne atayın veya doğru nesneye ekleyin.");
             }
         }
 
@@ -180,20 +195,20 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
 
         KararPaneliniKapat();
 
-        // --- SAHNE GEÇİŞİ VE SES ÇALMA BURADA BAŞLIYOR ---
+        // --- ÖNEMLİ DEĞİŞİKLİK: SAHNE GEÇİŞİ YERİNE CHATBOX AÇILIYOR ---
         if (tokmakSistemiYoneticisi != null)
         {
             tokmakSistemiYoneticisi.PlayTokmakSound(); // Tokmak sesi
-            tokmakSistemiYoneticisi.SahneyiGecikmeliYukle(
-                "HakiminOdasi", // Hedef sahne
-                tokmakSistemiYoneticisi.gecisTokmakSoundClip, // Geçiş sesi
-                tokmakSistemiYoneticisi.sahneGecisGecikmesi // Gecikme süresi
-            );
+        }
+        if (chatManager != null)
+        {
+            chatManager.OpenChatPanel(); // Chatbox'ı aç
         }
         else
         {
-            Debug.LogWarning("TokmakSistemiYoneticisi atanmamış, sahne direkt yükleniyor.");
-            SceneManager.LoadScene("HakiminOdasi"); // Fallback
+            Debug.LogWarning("ChatManager atanmamış, chatbox açılamadı.");
+            // Fallback olarak sahne geçişi yapmak isterseniz, bu kısmı geri getirebilirsiniz.
+            // SceneManager.LoadScene("HakiminOdasi");
         }
     }
 
@@ -214,20 +229,20 @@ public class KararGirisPaneliYoneticisi : MonoBehaviour
 
         KararPaneliniKapat();
 
-        // --- SAHNE GEÇİŞİ VE SES ÇALMA BURADA BAŞLIYOR ---
+        // --- ÖNEMLİ DEĞİŞİKLİK: SAHNE GEÇİŞİ YERİNE CHATBOX AÇILIYOR ---
         if (tokmakSistemiYoneticisi != null)
         {
             tokmakSistemiYoneticisi.PlayTokmakSound(); // Tokmak sesi
-            tokmakSistemiYoneticisi.SahneyiGecikmeliYukle(
-                "HakiminOdasi", // Hedef sahne
-                tokmakSistemiYoneticisi.gecisTokmakSoundClip, // Geçiş sesi
-                tokmakSistemiYoneticisi.sahneGecisGecikmesi // Gecikme süresi
-            );
+        }
+        if (chatManager != null)
+        {
+            chatManager.OpenChatPanel(); // Chatbox'ı aç
         }
         else
         {
-            Debug.LogWarning("TokmakSistemiYoneticisi atanmamış, sahne direkt yükleniyor.");
-            SceneManager.LoadScene("HakiminOdasi"); // Fallback
+            Debug.LogWarning("ChatManager atanmamış, chatbox açılamadı.");
+            // Fallback olarak sahne geçişi yapmak isterseniz, bu kısmı geri getirebilirsiniz.
+            // SceneManager.LoadScene("HakiminOdasi");
         }
     }
 

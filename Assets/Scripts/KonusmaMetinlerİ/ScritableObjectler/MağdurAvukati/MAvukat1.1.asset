@@ -15,6 +15,6 @@ MonoBehaviour:
   metin: "Say\u0131n Mahkeme, ortada yaln\u0131zca bir iddia de\u011Fil, sistematik
     bir \u015Fiddet tablosu vard\u0131r. Ma\u011Fdurun susarak ge\xE7irdi\u011Fi
     y\u0131llar bir travmad\u0131r..."
-  konusmaciAdi: Avukat
+  konusmaciAdi: Avukat Emre Bayrak
   konusmaciPortresi: {fileID: 0}
   sesDosyasi: {fileID: 8300000, guid: c86e948a5706f914f89b7a8215076408, type: 3}

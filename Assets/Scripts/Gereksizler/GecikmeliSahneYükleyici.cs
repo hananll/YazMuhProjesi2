@@ -24,17 +24,13 @@ public class GecikmeliSahneYükleyici : MonoBehaviour
         }
 
         butonum = GetComponent<Button>();
-        if (butonum == null)
-        {
-            Debug.LogWarning("Bu script bir Button üzerinde değil.", this);
-        }
+        
     }
 
     void OnEnable()
     {
         if (butonum != null)
         {
-            // Listener'ı sadece GameObject aktifken ekle
             butonum.onClick.AddListener(SahneYavasYukleCoroutineBaslat);
             Debug.Log(gameObject.name + " aktif hale geldi, listener eklendi.");
         }
@@ -44,25 +40,22 @@ public class GecikmeliSahneYükleyici : MonoBehaviour
     {
         if (butonum != null)
         {
-            // GameObject pasif hale geldiğinde listener'ı kaldır
             butonum.onClick.RemoveListener(SahneYavasYukleCoroutineBaslat);
             Debug.Log(gameObject.name + " pasif hale geldi, listener kaldırıldı.");
         }
     }
 
-    // Butonun OnClick olayından çağrılacak metod
     public void SahneYavasYukleCoroutineBaslat()
     {
         // Burada tekrar kontrol ediyoruz, çünkü bir şekilde bu metod çağrıldığında
         // GameObject'in aktif olmadığı bir an olabiliyor.
         if (!gameObject.activeInHierarchy)
         {
-            Debug.LogError("SahneYavasYukleCoroutineBaslat çağrıldı ama GameObject '" + gameObject.name + "' aktif değil! Coroutine başlatılamadı.", this);
             return; // Eğer aktif değilse işlemi durdur
         }
 
         Debug.Log(gameObject.name + " butonu tıklandı, Coroutine başlatılıyor...");
-        StopAllCoroutines(); // Önceki Coroutine'leri durdur
+        StopAllCoroutines(); 
         StartCoroutine(SahneYavasYukleBekle());
     }
 
@@ -76,10 +69,7 @@ public class GecikmeliSahneYükleyici : MonoBehaviour
             sesKaynagi.Play();
             Debug.Log("Ses çalıyor: " + tiklamaSesi.name);
         }
-        else
-        {
-            Debug.LogWarning("Ses klibi atanmadı veya AudioSource bulunamadı.");
-        }
+       
 
         yield return new WaitForSeconds(gecikmeSuresi);
 
@@ -88,9 +78,6 @@ public class GecikmeliSahneYükleyici : MonoBehaviour
             Debug.Log("Bekleme süresi bitti, sahne yükleniyor: " + yuklenecekSahneAdi);
             SceneManager.LoadScene(yuklenecekSahneAdi);
         }
-        else
-        {
-            Debug.LogWarning("Yüklenecek sahne adı belirtilmedi!");
-        }
+        
     }
 }

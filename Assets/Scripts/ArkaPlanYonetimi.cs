@@ -1,10 +1,9 @@
-// Script Adý: ArkaPlanYonetimi.cs
 using UnityEngine;
 
 public class ArkaPlanYonetimi : MonoBehaviour
 {
     
-    public GameObject blurluArkaPlanGameObject;
+    public GameObject blurluArkaPlanGameObject; // Burada blurlu background a referans verdim.
 
     public static ArkaPlanYonetimi Ornek { get; private set; }
 
@@ -29,7 +28,7 @@ public class ArkaPlanYonetimi : MonoBehaviour
             this.enabled = false;
             return;
         }
-        blurluArkaPlanGameObject.SetActive(false); // Baþlangýçta kesin kapalý
+        blurluArkaPlanGameObject.SetActive(false); // Bu satýrda baþlangýçta kapalý olmasýný saðladým.
         
     }
 

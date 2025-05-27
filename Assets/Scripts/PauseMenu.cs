@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI; // Panel referansý
+    public GameObject pauseMenuUI; 
     private bool isPaused = false;
 
     void Update()
@@ -24,20 +24,20 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f; // Oyunu kaldýðý yerden devam ettir
+        Time.timeScale = 1f; 
         isPaused = false;
     }
 
     void PauseGame()
     {
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f; // Oyunu durdur
+        Time.timeScale = 0f; 
         isPaused = true;
     }
 
     public void LoadMainMenu()
     {
-        Time.timeScale = 1f; // Sahne deðiþtirmeden önce zaman skalasýný sýfýrla
-        SceneManager.LoadScene("MainMenu"); // Sahne adýný kendi sahnene göre deðiþtir
+        Time.timeScale = 1f; 
+        SceneManager.LoadScene("MainMenu"); 
     }
 }
